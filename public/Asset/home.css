@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+  .sec{
+    
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    
+  }
+  .j3{
+
+    padding-bottom: 5%;
+    text-align: center;
+    
+  }
+  .j4{
+
+    padding-bottom: 5%;
+    
+  }
+
+  .card{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .but3{
+    margin-top: 2%;
+    text-align: end;
+  }
+  
+
+  .col{
+    border-radius: 50%;
+    text-align: cnter;
+  }
+  
+  
+
+  .petani{
+    height: 250px;
+    width: 250px;
+    clip-path: circle();
+  }
