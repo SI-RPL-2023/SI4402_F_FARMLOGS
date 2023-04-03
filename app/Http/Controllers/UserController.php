@@ -18,6 +18,10 @@ class UserController extends Controller
     {
         return view('login');
     }
+    public function teslogin()
+    {
+        return view('teslogin');
+    }
     public function cekregis(Request $request){
         $request->validate([
             'password' => 'confirmed'
@@ -26,9 +30,10 @@ class UserController extends Controller
         $RegisterUser = User::create([
             'email' => $request->email,
             'nama' => $request->nama,
-            'no_hp' => $request->no_hp,
-            'birth' => $request->birth,
             'id_role' => 2,
+            'nomor' => $request->nomor,
+            'lahir' => $request->lahir,
+            'daerah' => $request->daerah,
             'password' => Hash::make($request->password),
         ]);
         if($RegisterUser){
@@ -46,7 +51,7 @@ class UserController extends Controller
     if (Auth::attempt($credentials)) {
         $request->session()->regenerate();
 
-        return redirect()->intended('/');
+        return redirect()->intended('/teslogin');
     }
 
 

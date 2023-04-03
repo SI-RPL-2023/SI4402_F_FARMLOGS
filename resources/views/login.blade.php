@@ -24,26 +24,35 @@
     
 
         <h2>
-            Welcome Back!
+            Welcome
         </h2>
         <h4>
             Hasil Panen Siap dibeli
         </h4>
-        <p><a href="">Login Penjual</a></p>
-        <form action="ceklogin" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <button type="sumbit" class="btn btn-primary" style = >Login</button>
-            <br><br>
-            <p>Belum memiliki akun?
-                <a href="/register">Register</a>
-            </p>
+        @if($errors->any())
+        @foreach($errors->all() as $err)
+        <p class="alert alert-danger">{{ $err }}</p>
+        @endforeach
+        @endif
+
+        <form action="ceklogin" method="POST">
+            @csrf
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="sumbit" class="btn btn-success me-2" style = >Login</button>
+                <br><br>
+                <p>Belum memiliki akun?
+                    <a href="/register">Register</a>
+                </p>
+               
         </form>    
+                <p><a href="">Login Penjual</a></p>
+                <p><a href="">Login Admin</a></p>
     </div>
 </body>

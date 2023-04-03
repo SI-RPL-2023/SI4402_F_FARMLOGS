@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <title>Home Page</title>
     <link rel="icon" href="LOGO RPL .png" type="image/icon type">
-    <link rel="stylesheet" href="../Asset/login.css">
+    <link rel="stylesheet" href="../Asset/register.css">
 </head>
 <body class="">
     <div class="split left">
@@ -27,7 +27,13 @@
             Registrasi
         </h2>
         <br>
-        <form action="ceklogin" method="POST" enctype="multipart/form-data">
+        @if($errors->any())
+        @foreach($errors->all() as $err)
+        <p class="alert alert-danger">{{ $err }}</p>
+        @endforeach
+        @endif
+        <form action="/cekregis" method="POST">
+        @csrf
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email">
@@ -35,6 +41,10 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
                 <input type="text" class="form-control" id="nama" name="nama">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nomor Handphone</label>
+                <input type="number" class="form-control" id="nomor" name="nomor">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Tanggal Lahir</label>
@@ -50,13 +60,13 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Konfirmasi Password</label>
-                <input type="password" class="form-control" id="password" name="password_konfirmasi">
+                <input type="password" class="form-control" id="password" name="password_confirmation">
             </div>
-            <button type="sumbit" class="btn btn-primary" style = >Daftar</button>
+            <button type="sumbit" class="btn btn-success me-2">Daftar</button>
             <br><br>
-            <p>Sudah memiliki akun?
+        </form>    
+        <p>Sudah memiliki akun?
                 <a href="/login">Login</a>
             </p>
-        </form>    
     </div>
 </body>

@@ -37,12 +37,14 @@
                     </ul>
                 <div class = "loginbtn" >
                 <span>
-                    <a href="/login">
-                        <button class="btn btn-outline-success me-2"  type="submit">Log in</button>
-                    </a>
-                    <a href="/register">
-                        <button class="btn btn-outline-success me-2"  type="submit">Sign Up</button>
-                    </a>
+                <div class="dropdown">
+                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+                 </div>
                 </span>
                 </div>
                 </div>
