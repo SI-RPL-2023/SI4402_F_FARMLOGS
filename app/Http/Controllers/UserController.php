@@ -65,4 +65,28 @@ class UserController extends Controller
     $request->session()->regenerateToken();
     return redirect('/');
     }
+
+    public function profile()
+    {
+        return view('user.profile');
+    }
+
+    public function updateprof(Request $request)
+    {           
+        $request->validate([
+            'password' => 'confirmed'
+
+        ]);
+        $user = User::find(Auth::id());
+        DB::table('foowdusers')->update([
+            'nama'=> $request->nama,
+            'email'=> $request->email,
+            'no_hp'=> $request->no_hp,
+            'password'=> Hash::make($request->password),
+            'alamat'=> $request->alamat
+        ]);
+
+        return back();
+    }
 }
+
