@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('lahir');
             $table->string('daerah', 255);
             $table->string('password', 255);
-            $table->text('alamat')->default('');
             $table->timestamps();
         });
     }

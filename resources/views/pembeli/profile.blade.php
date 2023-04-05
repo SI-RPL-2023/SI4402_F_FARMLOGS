@@ -1,55 +1,17 @@
 
-
-
-
-
-
-<style>
-    .btn-linkacc {
-        color: #838383;
-        font-weight: 400;
-        width: 180px;
-        font-size: 16px;
-        border: solid 1px #ACB8C2;
-        border-radius: 10px;
-    }
-
-    .payment-logo {
-        justify-content: center;
-        text-align: center;
-        display: block;
-        align-items: center;
-        object-fit: fill;
-    }
-
-    .home {
-        margin-left: 12rem;
-        margin-right: 12rem;
-        margin-bottom: 20px;
-    }
-
-    .text-prim {
-        color: #000000;
-    }
-
-    .btn-edit {
-        color: #fff;
-        font-weight: 400;
-        width: 200px;
-        font-size: 16px;
-        border-radius: 10px;
-        background-color: #008000;
-    }
-
-    .btn-edit:hover {
-        color: #fff;
-        font-weight: 400;
-        font-size: 16px;
-        border-radius: 10px;
-        background-color: #50c878;
-    }
-</style>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <title>Farmlogs</title>
+    <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
+    <link rel="stylesheet" href="../Asset/home.css">
+</head>
+<body>
 <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -76,10 +38,10 @@
                     </ul>
                 <div class = "loginbtn" >
                 <span>
-                    <a href="/profile">
-                        <button class="btn btn-outline-success me-2"  type="submit">Profile</button>
+                    <a href="/pembeli/home">
+                        <button class="btn btn-outline-success me-2"  type="submit">Home</button>
                     </a>
-                    <a href="#">
+                    <a href="/logout">
                         <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
                     </a>
                 </span>
@@ -94,36 +56,56 @@
 <div class="home w-12/12 overflow-auto p-4">
     <p class="text-prim text-xl" style="font-size: 28px;">Your Profile</p>
     <div class="mt-4">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="/updateprof" method="post" enctype="multipart/form-data">
             @csrf
             <div>
-                <input type="hidden" value="{{ $user->id }}" name="id">
+                <input type="hidden" value="{{ Auth::user()->id }}" name="id">
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nama</label>
                 <div class="col-sm-10">
-                    <input value="{{ $user->name }}" type="text" class="form-control" placeholder="Name" name="name">
+                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Nama" name="nama">
                 </div>
             </div>
-
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">E-mail</label>
                 <div class="col-sm-10">
-                    <input value="{{ $user->email }}" type="text" class="form-control" placeholder="Email" name="email">
+                    <input value="{{ Auth::user()->nama }}" type="text" class="form-control" placeholder="Email" name="email">
                 </div>
             </div>
-
+            <div class="form-group mb-3 row">
+                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nomor Handphone</label>
+                <div class="col-sm-10">
+                    <input value="{{ Auth::user()->nomor }}" type="number" class="form-control" placeholder="Nomor Handphone" name="nomor">
+                </div>
+            </div>
+            <div class="form-group mb-3 row">
+                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Tanggal Lahir</label>
+                <div class="col-sm-10">
+                    <input value="{{ Auth::user()->lahir }}" type="date" class="form-control" placeholder="Tanggal Lahir" name="lahir" readonly>
+                </div>
+            </div>
+            <div class="form-group mb-3 row">
+                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Daerah</label>
+                <div class="col-sm-10">
+                    <input value="{{ Auth::user()->daerah }}" type="text" class="form-control" placeholder="Daerah" name="daerah">
+                </div>
+            </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Password</label>
                 <div class="col-sm-10">
                     <input type="password" class="form-control" placeholder="Password" name="password">
                 </div>
             </div>
-
+            <div class="form-group mb-3 row">
+                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Konfirmasi Password</label>
+                <div class="col-sm-10">
+                    <input  type="password" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation">
+                </div>
+            </div>
             <div class="form-group mt-5" style="float: right;">
                 <button type="submit" class="btn btn-edit mx-2">Update</button>
             </div>
-
         </form>
     </div>
 
@@ -172,3 +154,5 @@
       <div class="b-example-divider"></div>
   
 </div>
+</body>
+</html>

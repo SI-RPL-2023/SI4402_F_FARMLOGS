@@ -14,14 +14,15 @@ class UserController extends Controller
     {
         return view('register');
     }
+    public function registerpetani()
+    {
+        return view('registerpetani');
+    }
     public function login()
     {
         return view('login');
     }
-    public function teslogin()
-    {
-        return view('teslogin');
-    }
+
     public function cekregis(Request $request){
         $request->validate([
             'password' => 'confirmed'
@@ -30,7 +31,26 @@ class UserController extends Controller
         $RegisterUser = User::create([
             'email' => $request->email,
             'nama' => $request->nama,
-            'id_role' => 2,
+            'id_roles' => 2,
+            'nomor' => $request->nomor,
+            'lahir' => $request->lahir,
+            'daerah' => $request->daerah,
+            'password' => Hash::make($request->password),
+        ]);
+        if($RegisterUser){
+            return redirect('/login');
+        }
+
+    }
+    public function cekregis2(Request $request){
+        $request->validate([
+            'password' => 'confirmed'
+        ]);
+
+        $RegisterUser = User::create([
+            'email' => $request->email,
+            'nama' => $request->nama,
+            'id_roles' => 3,
             'nomor' => $request->nomor,
             'lahir' => $request->lahir,
             'daerah' => $request->daerah,
@@ -51,7 +71,7 @@ class UserController extends Controller
     if (Auth::attempt($credentials)) {
         $request->session()->regenerate();
 
-        return redirect()->intended('/teslogin');
+        return redirect()->intended('/pembeli/home');
     }
 
 
@@ -66,24 +86,31 @@ class UserController extends Controller
     return redirect('/');
     }
 
-    public function profile()
+    public function homepembeli()
     {
-        return view('user.profile');
+        return view('pembeli.home');
+    }
+
+    public function profilepembeli()
+    {
+        return view('pembeli.profile');
     }
 
     public function updateprof(Request $request)
     {           
         $request->validate([
-            'password' => 'confirmed'
+            'password' => 'required|string|min:8|confirmed',
 
         ]);
         $user = User::find(Auth::id());
-        DB::table('foowdusers')->update([
-            'nama'=> $request->nama,
+        DB::table('users')->update([
             'email'=> $request->email,
-            'no_hp'=> $request->no_hp,
-            'password'=> Hash::make($request->password),
-            'alamat'=> $request->alamat
+            'nama'=> $request->nama,
+            'nomor' => $request->nomor,
+            'lahir' => $request->lahir,
+            'daerah' => $request->daerah,
+            'password'=> Hash::make($request->password ),
+
         ]);
 
         return back();
