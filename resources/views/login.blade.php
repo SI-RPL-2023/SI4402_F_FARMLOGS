@@ -52,7 +52,5 @@
                 </p>
                
         </form>    
-                <p><a href="">Login Penjual</a></p>
-                <p><a href="">Login Admin</a></p>
     </div>
 </body>

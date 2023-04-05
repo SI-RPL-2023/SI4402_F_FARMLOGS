@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/pembeli/home">
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +37,10 @@
                     </ul>
                 <div class = "loginbtn" >
                 <span>
-                    <a href="/profile">
+                    <a href="/pembeli/profile">
                         <button class="btn btn-outline-success me-2"  type="submit">Profile</button>
                     </a>
-                    <a href="#">
+                    <a href="/logout">
                         <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
                     </a>
                 </span>

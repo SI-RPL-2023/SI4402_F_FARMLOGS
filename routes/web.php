@@ -19,8 +19,13 @@ Route::get('/', function () {
 });
 
 Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::get('/registerpetani', [UserController::class, 'registerpetani'])->name('registerpetani');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/cekregis', [UserController::class, 'cekregis'])->name('cekregis');
+Route::post('/cekregis2', [UserController::class, 'cekregis2'])->name('cekregis2');
 Route::post('/ceklogin', [UserController::class, 'ceklogin'])->name('ceklogin');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/teslogin', [UserController::class, 'teslogin'])->name('teslogin');
+Route::post('/updateprof', [UserController::class, 'updateprof'])->name('updateprof');
+
+Route::get('/pembeli/home', [UserController::class, 'homepembeli'])->name('homepembeli');
+Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name('profilepembeli');
