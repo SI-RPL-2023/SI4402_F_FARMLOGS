@@ -36,17 +36,15 @@
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
                     </ul>
-                <div class = "loginbtn" >
-                <span>
-                    <a href="/pembeli/home">
-                        <button class="btn btn-outline-success me-2"  type="submit">Home</button>
-                    </a>
-                    <a href="/logout">
-                        <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
-                    </a>
-                </span>
                 </div>
-                </div>
+                <div class="dropdown">
+                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+              </div>
             </div>
             </div>
         </nav>
