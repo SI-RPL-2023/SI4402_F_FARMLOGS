@@ -1,6 +1,10 @@
 <h1> WEBSITE FARMLOGS </h1>
 
+<img src="https://drive.google.com/file/d/1ywB7mUUiYkRoMdW5RLceU3Glybfcvvy_/view?usp=share_link" alt="Deskripsi Gambar">
+
 SGDS 8 : PEKERJAAN DAN EKONOMI
+
+
 
 <h2> ANGGOTA KELOMPOK : </h2> 
 - JACQUELINE EVANGELISTA S 			    - 1202204151
