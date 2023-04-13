@@ -1,6 +1,6 @@
 <h1> WEBSITE FARMLOGS </h1>
 
-<img src="https://drive.google.com/file/d/1ywB7mUUiYkRoMdW5RLceU3Glybfcvvy_/view?usp=share_link" alt="Deskripsi Gambar">
+<center><img src="C:\Users\lenovo\Downloads\LOGO\1.png"width="155" height="115"></center>
 
 SGDS 8 : PEKERJAAN DAN EKONOMI
 
