@@ -13,6 +13,5 @@ SGDS 8 : PEKERJAAN DAN EKONOMI
 <br>
 
 <h3>Tentang Farmlogs</h3>
-<hr>
 Farmlogs adalah sebuah website yang membatu petani untuk menjual hasil panen dengan mudah dan petani bisa mengajukan pinjaman dana untuk mengembangkan pertanian.
 
