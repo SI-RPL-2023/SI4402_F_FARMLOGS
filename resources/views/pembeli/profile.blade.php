@@ -62,13 +62,13 @@
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nama</label>
                 <div class="col-sm-10">
-                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Nama" name="nama">
+                    <input value="{{ Auth::user()->nama }}" type="text" class="form-control" placeholder="Nama" name="nama">
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">E-mail</label>
                 <div class="col-sm-10">
-                    <input value="{{ Auth::user()->nama }}" type="text" class="form-control" placeholder="Email" name="email">
+                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Email" name="email">
                 </div>
             </div>
             <div class="form-group mb-3 row">
