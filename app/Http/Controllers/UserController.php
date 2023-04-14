@@ -99,7 +99,7 @@ class UserController extends Controller
     public function updateprof(Request $request)
     {           
         $request->validate([
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'confirmed',
 
         ]);
         $user = User::find(Auth::id());
@@ -109,7 +109,7 @@ class UserController extends Controller
             'nomor' => $request->nomor,
             'lahir' => $request->lahir,
             'daerah' => $request->daerah,
-            'password'=> Hash::make($request->password ),
+            'password'=> Hash::make($request->password),
 
         ]);
 

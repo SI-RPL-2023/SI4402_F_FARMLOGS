@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PetaniController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +32,9 @@ Route::post('/updateprof', [UserController::class, 'updateprof'])->name('updatep
 
 Route::get('/pembeli/home', [UserController::class, 'homepembeli'])->name('homepembeli');
 Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name('profilepembeli');
+
+Route::get('/petani/home', [PetaniController::class, 'homepetani'])->name('homepetani');
+Route::get('/petani/profile', [PetaniController::class, 'profilepetani'])->name('profilepetani');
+
+Route::get('/admin/dashboard', [AdminController::class, 'dashboardadmin'])->name('dashboard');
+Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
