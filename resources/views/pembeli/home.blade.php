@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/pembeli/home">
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,14 +35,16 @@
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
                     </ul>
-                <div class = "loginbtn" >
-                <span>
-                    <a href="/profile">
-                        <button class="btn btn-outline-success me-2"  type="submit">Profile</button>
-                    </a>
-                    <a href="#">
-                        <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
-                    </a>
+                </div>
+                <div class="dropdown">
+                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+              </div>
+              </div>
                 </span>
                 </div>
                 </div>

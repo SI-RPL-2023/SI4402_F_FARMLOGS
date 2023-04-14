@@ -24,7 +24,7 @@
     
 
         <h2>
-            Registrasi Pembeli
+            Registrasi Petani
         </h2>
         <br>
         @if($errors->any())
@@ -32,7 +32,7 @@
         <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
         @endif
-        <form action="/cekregis" method="POST">
+        <form action="/cekregis2" method="POST">
         @csrf
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email</label>
@@ -68,8 +68,8 @@
         <p>Sudah memiliki akun?
             <a href="/login">Login</a>
         </p>
-        <p>Ingin daftar menjadi petani?
-            <a href="/registerpetani">Petani</a>
+        <p>Ingin membeli hasil panen?
+            <a href="/register">Pembeli</a>
         </p>
     </div>
 </body>

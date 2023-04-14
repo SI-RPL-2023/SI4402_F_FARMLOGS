@@ -46,3 +46,55 @@
     width: 250px;
     clip-path: circle();
   }
+
+  .container{
+    padding-top: 7%;
+  }
+
+    .btn-linkacc {
+        color: #838383;
+        font-weight: 400;
+        width: 180px;
+        font-size: 16px;
+        border: solid 1px #ACB8C2;
+        border-radius: 10px;
+    }
+
+    .payment-logo {
+        justify-content: center;
+        text-align: center;
+        display: block;
+        align-items: center;
+        object-fit: fill;
+    }
+
+    .home {
+        margin-left: 12rem;
+        margin-right: 12rem;
+        margin-bottom: 20px;
+    }
+
+    .text-prim {
+        color: #000000;
+    }
+
+    .btn-edit {
+        color: #4fb848;
+        font-weight: 400;
+        width: 200px;
+        font-size: 16px;
+        border-radius: 10px;
+        background-color: #008000;
+    }
+
+    .btn-edit:hover {
+        color: #fff;
+        font-weight: 400;
+        font-size: 16px;
+        border-radius: 10px;
+        background-color: #50c878;
+    }
+
+    .dropdown {
+      padding-right: 5%;
+    }
