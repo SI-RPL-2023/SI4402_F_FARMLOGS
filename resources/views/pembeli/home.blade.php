@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/pembeli/home">
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href="{{ url('/artikel') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
@@ -60,7 +63,7 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="../Image/Petani-Sukses-2020.jpg" class="d-block w-100" alt="...">
+                <img src="../Image/Petani-Sukses-2020.jpg" class="d-block w-100 " alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h1>Bangun Bisnis Anda Bersama Kami</h1>
                   <a href="/login">
