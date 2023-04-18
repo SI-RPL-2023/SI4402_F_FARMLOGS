@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PetaniController;
+use App\Http\Controllers\ArtikelController;
 
 
 /*
@@ -32,6 +33,8 @@ Route::post('/updateprof', [UserController::class, 'updateprof'])->name('updatep
 
 Route::get('/pembeli/home', [UserController::class, 'homepembeli'])->name('homepembeli');
 Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name('profilepembeli');
+Route::get('/artikel', [ArtikelController::class,'index']);
+Route::get('/artikel/{id_artikel}', 'ArtikelController@show')->name('artikel.show');
 
 Route::get('/petani/home', [PetaniController::class, 'homepetani'])->name('homepetani');
 Route::get('/petani/profile', [PetaniController::class, 'profilepetani'])->name('profilepetani');
