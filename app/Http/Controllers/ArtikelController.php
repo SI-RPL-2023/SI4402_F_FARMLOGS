@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 class ArtikelController extends Controller
 {
     public function index()

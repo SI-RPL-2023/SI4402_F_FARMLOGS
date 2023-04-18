@@ -123,7 +123,6 @@
         <div class="col-md-6 mb-5 mb-lg-4">
             <div class="card justify-center mx-auto px-20 py-30" style="width: 50rem;" align="center">
             <img src="../Image/panenid.jpg" alt="gambar" width="800" height="500">
-        
                 <div class="card-body justify-center">
                     <h5 class="card-title">{{$data->nama_artikel}}</h5>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{$data->id_artikel}}">

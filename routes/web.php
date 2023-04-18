@@ -36,8 +36,6 @@ Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name(
 Route::get('/artikel', [ArtikelController::class,'index']);
 Route::get('/artikel/{id_artikel}', 'ArtikelController@show')->name('artikel.show');
 
-
-
 Route::get('/petani/home', [PetaniController::class, 'homepetani'])->name('homepetani');
 Route::get('/petani/profile', [PetaniController::class, 'profilepetani'])->name('profilepetani');
 
