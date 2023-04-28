@@ -41,6 +41,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
                   <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
