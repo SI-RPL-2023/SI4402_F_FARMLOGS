@@ -8,7 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <title>Farmlogs</title>
+
+    <link rel="icon" href="Image/LOGO RPL.png" type="image/icon type">
+
     <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
+
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 <body>
@@ -16,7 +20,11 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
+
+                    <img src="../Image/LOGO RPL.png" width="80" height="">
+
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,6 +44,19 @@
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
                     </ul>
+
+                <div class = "loginbtn" >
+                <span>
+                    <a href="/pembeli/home">
+                        <button class="btn btn-outline-success me-2"  type="submit">Home</button>
+                    </a>
+                    <a href="/logout">
+                        <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
+                    </a>
+                </span>
+                </div>
+                </div>
+
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false"></button></a>
@@ -46,6 +67,7 @@
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
               </div>
+
             </div>
             </div>
         </nav>
@@ -58,36 +80,59 @@
         <form action="/updateprof" method="post" enctype="multipart/form-data">
             @csrf
             <div>
+
+                <input type="hidden" value="{{ Auth::user()->id }}" name="id">
+
                 <input type="hidden" value="" name="id">
+
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nama</label>
                 <div class="col-sm-10">
+
+                    <input value="{{ Auth::user()->Nama }}" type="text" class="form-control" placeholder="Nama" name="nama">
+
                     <input value="" type="text" class="form-control" placeholder="Nama" name="nama">
+
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">E-mail</label>
                 <div class="col-sm-10">
+
+                    <input value="{{ Auth::user()->Email }}" type="text" class="form-control" placeholder="Email" name="email">
+
                     <input value="" type="text" class="form-control" placeholder="Email" name="email">
+
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nomor Handphone</label>
                 <div class="col-sm-10">
+
+                    <input value="{{ Auth::user()->nomor }}" type="number" class="form-control" placeholder="Nomor Handphone" name="nomor">
+
                     <input value="" type="number" class="form-control" placeholder="Nomor Handphone" name="nomor">
+
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Tanggal Lahir</label>
                 <div class="col-sm-10">
+
+                    <input value="{{ Auth::user()->lahir }}" type="date" class="form-control" placeholder="Tanggal Lahir" name="lahir" readonly>
+
                     <input value="" type="date" class="form-control" placeholder="Tanggal Lahir" name="lahir" readonly>
+
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Daerah</label>
                 <div class="col-sm-10">
+
+                    <input value="{{ Auth::user()->daerah }}" type="text" class="form-control" placeholder="Daerah" name="daerah">
                     <input value="" type="text" class="form-control" placeholder="Daerah" name="daerah">
+
                 </div>
             </div>
             <div class="form-group mb-3 row">
