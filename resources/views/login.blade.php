@@ -7,14 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <title>Home Page</title>
-    <link rel="icon" href="LOGO RPL .png" type="image/icon type">
+    <link rel="icon" href="Image/LOGO RPL.png" type="image/icon type">
     <link rel="stylesheet" href="../Asset/login.css">
 </head>
 <body class="">
     <div class="split left">
         <div class="centered">
             <a href="/">
-                <img src="../Image/LOGO RPL .png" alt="" width="950" height="929">
+                <img src="../Image/LOGO RPL.png" alt="" width="950" height="929">
             </a>
             
         </div>
@@ -45,6 +45,15 @@
                     <label for="exampleFormControlInput1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
+                <div>
+                    <label for="role">Role</label>
+                    <select name="id_roles" required>
+                        <option value="1">Admin</option>
+                        <option value="2">Pembeli</option>
+                        <option value="3">Petani</option>
+                    </select>
+                </div>
+                <br>
                 <button type="sumbit" class="btn btn-success me-2" style = >Login</button>
                 <br><br>
                 <p>Belum memiliki akun?
