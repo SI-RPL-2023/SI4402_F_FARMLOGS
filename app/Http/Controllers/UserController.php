@@ -25,7 +25,8 @@ class UserController extends Controller
 
     public function cekregis(Request $request){
         $request->validate([
-            'password' => 'confirmed'
+            'password' => 'confirmed',
+            'email' => ['required', 'unique:users', 'email:dns']
         ]);
 
         $RegisterUser = User::create([
@@ -64,15 +65,27 @@ class UserController extends Controller
     public function ceklogin(Request $request)
     {
 
-    $credentials = $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required']
-    ]);
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
+        $credentials = $request->only('email', 'password', 'id_roles');
 
-        return redirect()->intended('/pembeli/home');
-    }
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            if ($request->user()->id_roles == '1') {
+                return redirect()->intended('/admin/dashboard');
+            }
+
+            if ($request->user()->id_roles == '2') {
+                return redirect()->intended('/pembeli/home');
+            }
+
+            if ($request->user()->id_roles == '3') {
+                return redirect()->intended('/petani/home');
+            }
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
 
 
     return redirect('/login');
@@ -99,21 +112,28 @@ class UserController extends Controller
     public function updateprof(Request $request)
     {           
         $request->validate([
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'confirmed',
 
         ]);
-        $user = User::find(Auth::id());
-        DB::table('users')->update([
+        $user = Auth::user();;
+        DB::table('users')
+        ->where('id', $user->id)
+        ->update([
             'email'=> $request->email,
             'nama'=> $request->nama,
             'nomor' => $request->nomor,
             'lahir' => $request->lahir,
             'daerah' => $request->daerah,
-            'password'=> Hash::make($request->password ),
+            'password'=> Hash::make($request->password),
 
         ]);
 
         return back();
+    }
+
+    public function authenticate(Request $request)
+    {
+        
     }
 }
 

@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/pembeli/home">
                     <img src="../Image/LOGO RPL.png" width="80" height="">
@@ -31,18 +31,23 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href="{{ url('/artikel') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
                     </ul>
-                <div class = "loginbtn" >
-                <span>
-                    <a href="/pembeli/profile">
-                        <button class="btn btn-outline-success me-2"  type="submit">Profile</button>
-                    </a>
-                    <a href="/logout">
-                        <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
-                    </a>
+                </div>
+                <div class="dropdown">
+                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+              </div>
+              </div>
                 </span>
                 </div>
                 </div>
@@ -58,7 +63,7 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="../Image/Petani-Sukses-2020.jpg" class="d-block w-100" alt="...">
+                <img src="../Image/Petani-Sukses-2020.jpg" class="d-block w-100 " alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h1>Bangun Bisnis Anda Bersama Kami</h1>
                   <a href="/login">

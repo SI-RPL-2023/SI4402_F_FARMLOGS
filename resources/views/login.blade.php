@@ -45,6 +45,15 @@
                     <label for="exampleFormControlInput1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
+                <div>
+                    <label for="role">Role</label>
+                    <select name="id_roles" required>
+                        <option value="1">Admin</option>
+                        <option value="2">Pembeli</option>
+                        <option value="3">Petani</option>
+                    </select>
+                </div>
+                <br>
                 <button type="sumbit" class="btn btn-success me-2" style = >Login</button>
                 <br><br>
                 <p>Belum memiliki akun?
