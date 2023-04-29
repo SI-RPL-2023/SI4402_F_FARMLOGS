@@ -14,4 +14,8 @@ class PetaniController extends Controller
     {
         return view('petani.home');
     }
+    public function inputpanen()
+    {
+        return view('petani.inputpanen');
+    }
 }
