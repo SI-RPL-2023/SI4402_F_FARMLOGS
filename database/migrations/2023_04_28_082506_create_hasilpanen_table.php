@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->longText('detail');
             $table->string('image');
+            $table->integer('harga');
             $table->bigInteger('hasil');
+            $table->string('status');
             $table->timestamps();
         });
     }

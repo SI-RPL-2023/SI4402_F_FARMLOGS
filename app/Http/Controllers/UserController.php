@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\HasilPanen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -131,9 +132,12 @@ class UserController extends Controller
         return back();
     }
 
-    public function authenticate(Request $request)
+    
+    public function menupembeli()
     {
-        
+        $list = HasilPanen::all();
+        return view('pembeli.menu',compact('list'));
     }
+
 }
 
