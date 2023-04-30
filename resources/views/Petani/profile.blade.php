@@ -40,14 +40,23 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
                     </ul>
 
+<<<<<<< HEAD
                 <!-- <div class = "loginbtn" > -->
                 <!-- <span>
                     <a href="home">
+=======
+                <div class = "loginbtn" >
+                <span>
+                    <a href="/petani/home">
+>>>>>>> 9b88e657dd9091182b8f57849839ec59da3832ba
                         <button class="btn btn-outline-success me-2"  type="submit">Home</button>
                     </a>
                     <a href="/logout">

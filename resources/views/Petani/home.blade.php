@@ -31,7 +31,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Bayar Pinjaman</a>
                     </li>
+<<<<<<< HEAD
                     <!-- <li class="nav-item">
+=======
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
+                    </li>
+                    <li class="nav-item">
+>>>>>>> 9b88e657dd9091182b8f57849839ec59da3832ba
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li> -->
                     </ul>
