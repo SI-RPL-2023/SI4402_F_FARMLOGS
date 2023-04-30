@@ -19,11 +19,13 @@
 <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
+
                 <a class="navbar-brand" href="/">
 
                     <!-- <img src="../Image/LOGO RPL.png" href="/home" width="80" height=""> -->
 
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" href="home" width="80" height="">
+
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,15 +50,9 @@
                     </li>
                     </ul>
 
-<<<<<<< HEAD
-                <!-- <div class = "loginbtn" > -->
-                <!-- <span>
-                    <a href="home">
-=======
                 <div class = "loginbtn" >
                 <span>
                     <a href="/petani/home">
->>>>>>> 9b88e657dd9091182b8f57849839ec59da3832ba
                         <button class="btn btn-outline-success me-2"  type="submit">Home</button>
                     </a>
                     <a href="/logout">
@@ -90,28 +86,33 @@
             @csrf
             <div>
 
+
                 <input type="hidden" value="{{ Auth::user()->id }}" name="id">
 
                 <input type="hidden" value="" name="id">
 
+
             </div>
             <div class="form-group mb-3 row">
-                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nama</label>
+                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nama Petani</label>
                 <div class="col-sm-10">
 
-                    <input value="{{ Auth::user()->Nama }}" type="text" class="form-control" placeholder="Nama" name="nama">
+
+                    <input value="{{ Auth::user()->nama }}" type="text" class="form-control" placeholder="Nama" name="nama">
 
                     <input value="" type="text" class="form-control" placeholder="Nama" name="nama">
+
 
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">E-mail</label>
-                <div class="col-sm-10">
 
-                    <input value="{{ Auth::user()->Email }}" type="text" class="form-control" placeholder="Email" name="email">
+
+                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Email" name="email">
 
                     <input value="" type="text" class="form-control" placeholder="Email" name="email">
+
 
                 </div>
             </div>
@@ -119,9 +120,11 @@
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nomor Handphone</label>
                 <div class="col-sm-10">
 
+
                     <input value="{{ Auth::user()->nomor }}" type="number" class="form-control" placeholder="Nomor Handphone" name="nomor">
 
                     <input value="" type="number" class="form-control" placeholder="Nomor Handphone" name="nomor">
+
 
                 </div>
             </div>
@@ -129,15 +132,18 @@
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Tanggal Lahir</label>
                 <div class="col-sm-10">
 
+
                     <input value="{{ Auth::user()->lahir }}" type="date" class="form-control" placeholder="Tanggal Lahir" name="lahir" readonly>
 
                     <input value="" type="date" class="form-control" placeholder="Tanggal Lahir" name="lahir" readonly>
+
 
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Daerah</label>
                 <div class="col-sm-10">
+
 
                     <input value="{{ Auth::user()->daerah }}" type="text" class="form-control" placeholder="Daerah" name="daerah">
                     <input value="" type="text" class="form-control" placeholder="Daerah" name="daerah">

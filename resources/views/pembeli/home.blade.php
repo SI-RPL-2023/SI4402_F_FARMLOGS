@@ -26,7 +26,7 @@
                         <a class="nav-link active" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
+                        <a class="nav-link active" href="/pembeli/menu">Hasil Panen</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
