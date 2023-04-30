@@ -21,13 +21,13 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
 
-                    <img src="../Image/LOGO RPL.png" width="80" height="">
+                    <!-- <img src="../Image/LOGO RPL.png" href="/home" width="80" height=""> -->
 
-                    <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
+                    <img src="../Image/LOGO_RPL_-removebg-preview.png" href="home" width="80" height="">
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon" ></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -45,23 +45,23 @@
                     </li>
                     </ul>
 
-                <div class = "loginbtn" >
-                <span>
-                    <a href="/pembeli/home">
+                <!-- <div class = "loginbtn" > -->
+                <!-- <span>
+                    <a href="home">
                         <button class="btn btn-outline-success me-2"  type="submit">Home</button>
                     </a>
                     <a href="/logout">
                         <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
                     </a>
-                </span>
-                </div>
+                </span> -->
+                <!-- </div> -->
                 </div>
 
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false"></button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="home">Home</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
                   <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
