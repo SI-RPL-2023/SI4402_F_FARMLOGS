@@ -25,7 +25,7 @@
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/profile">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="/admin/dashboard">Dashboard</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
