@@ -75,7 +75,7 @@
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="tambahproduk">Gudang</a>
+                        <a class="collapse-item" href="404.html">404 Page</a>
                         <a class="collapse-item active" href="blank.html">Blank Page</a>
                     </div>
                 </div>
@@ -308,23 +308,67 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Gudang</h1>
 
                 </div>
                 <!-- /.container-fluid -->
 
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+           
+           <!-- insert form -->
+           <div class="card shadow mb-4">
+             <div class="card-header py-3">
+               <h6 class="m-0 font-weight-bold text-primary">
+                 Tambah hasil panen
+               </h6>
+             </div>
+             <div class="card-body">
+               <div class="table-responsive">
+                 <form enctype="multipart/form-data" method="POST" action="" class="form-input" >
+                   <div class="mb-3">
+                     <label for="inputNamaMobil" class="form-label">Nama panen</label>
+                     <input
+                       type="text"
+                       class="form-control"
+                       placeholder="masukan nama panen..."
+                       name="name"
+                       required
+                     />
+                   </div>
+                   <div class="mb-3">
+                     <label for="formFile" class="form-label">Foto hasil panen</label>
+                     <input type="file" class="form-control-file" name="gambar" />
+                   </div>
+                   <div class="mb-3">
+                       <div class="form-group">
+                       <label for="exampleFormControlTextarea1">Deskripsi</label>
+                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi" required></textarea>
+                   </div>
+                   </div>
+                   <div class="mb-3">
+                     <label for="inputMerk" class="form-label">harga</label>
+                     <input
+                       type="number"
+                       class="form-control"
+                       placeholder="Masukan harga..."
+                       name="harga"
+                       required
+                     />
+                   </div>
+                   
+                   <div class="mb-3">
+                     <button type="submit" class="btn btn-primary">Selesai</button>
+                   </div>
+                 </form>               
+               </div>
+             </div>
+           </div>
+         </div>
+
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->

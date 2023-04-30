@@ -18,4 +18,8 @@ class AdminController extends Controller
     {
         return view('admin.profile');
     }
+    public function tambahproduk()
+    {
+        return view('admin.tambahproduk');
+    }
 }
