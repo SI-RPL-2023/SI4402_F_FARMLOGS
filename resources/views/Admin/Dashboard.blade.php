@@ -13,6 +13,7 @@
     <title>Dashboard Admin</title>
 
     <!-- Custom fonts for this template-->
+    <link href="{{asset('template/css/sb-admin-2.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('template/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -22,7 +23,8 @@
     <link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <style>
         .navcolor{
-            background:#4fb848 !important;
+            background:#107953 !important;
+
         }
     </style>
 
@@ -34,22 +36,25 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion navcolor" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
-                <div class="sidebar-brand-icon rotate-n-15">
+                <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Farmlogs Admin</div>
+                </div> -->
+                <div class="sidebar-brand-text mx-3">FARMLOGS ADMIN</div>
+
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link " href="dashboard">
+
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard">
+
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -75,15 +80,22 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="dashboard">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item " href="blank.html">Blank Page</a>
+
+                        <a class="collapse-item" href="/login">Login</a>
+                        <a class="collapse-item" href="/register">Register</a>
+
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Admin/tableadmin">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Admin/validateadmin">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Validate</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
@@ -155,13 +167,19 @@
                         </li>
 
 
-                       
+                        <!-- Nav Item - Alerts -->
+                        
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->nama }}</span>
+
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+
                                 <img class="img-profile rounded-circle"
                                     src="{{asset('template/img/undraw_profile.svg')}}">
                             </a>
@@ -173,7 +191,7 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="C:\xampp\htdocs\SI4402_F_FARMLOGS\resources\views\welcome.blade.php" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -188,12 +206,62 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Penjualan</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Hasil Penjualan </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp 0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                User</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                     <!-- Content Row -->
                     <div class="row">
@@ -252,7 +320,10 @@
             </div>
             <!-- End of Main Content -->
 
- 
+
+            
+
+
         </div>
         <!-- End of Content Wrapper -->
 
@@ -283,7 +354,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('template/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
