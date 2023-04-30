@@ -40,6 +40,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
@@ -47,7 +50,7 @@
 
                 <div class = "loginbtn" >
                 <span>
-                    <a href="/pembeli/home">
+                    <a href="/petani/home">
                         <button class="btn btn-outline-success me-2"  type="submit">Home</button>
                     </a>
                     <a href="/logout">
