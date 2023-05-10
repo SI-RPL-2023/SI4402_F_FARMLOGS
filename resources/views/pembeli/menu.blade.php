@@ -10,11 +10,11 @@
     <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
-
+<body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/petani/home">
+                <a class="navbar-brand" href="/pembeli/home">
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,11 +26,14 @@
                         <a class="nav-link active" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
+                        <a class="nav-link active" href="/pembeli/menu">Hasil Panen</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href="{{ url('/artikel') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
@@ -41,73 +44,57 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
               </div>
+              </div>
+                </span>
+                </div>
+                </div>
             </div>
             </div>
         </nav>
     </header>
-
-<body>
-
-    <div class="w-10/12 ml-3 bg-white border border-gray-200 rounded-2xl shadow-md max-h-150vh overflow-auto p-4">
-        <div class="row">
-            <p class="col text-blueDark text-xl" style="font-size: 28px;">Hasil Panen</p>
-            @if ($errors->any())
-            <div class="flex w-full p-4 mb-4 text-sm text-white bg-red-700 rounded-lg self-start" role="alert">
-                <ul class="mt-1.5 text-blue-700 list-disc list-inside">
-                    {!! implode('', $errors->all('<li style="color: #373737;">:message</li>')) !!}
-                </ul>
+    <section class="car">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             </div>
-            @endif
-        </div>
-        <div class="block w-full p-4 bg-white border border-gray-200 rounded-lg shadow-md mt-4">
-            <div class="w-full flex justify-center">
-                <form action="" method="POST" class="w-full" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row text-left">
-                        <div class="col-sm-12 mb-3">
-                            <div class="before" id="before" style="display: block;">
-                                <label class="custom-file-upload">
-                                    <i class="fa-solid fa-plus" style="color:#5B5B5B;font-size:50px;"></i>
-                                    <p style="color:#373737;">Gambar Hasil Panen</p>
-                                    <input type="file" onchange="loadFile(this)" id="image" name="image" class="form-control-file">
-                                </label>
-                            </div>
-                            <div class="after" id="after" style="display: none;">
-                                <center>
-                                    <img class="mb-2" id="output" style="max-width: 100%;height:200px;object-fit:cover;" />
-                                </center>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Hasil Panen</label>
-                            <input id="name" name="name" type="text" class="form-control" placeholder="Masukkan Nama Hasil Panen">
-                        </div>
-                        <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Detail Hasil Panen</label>
-                            <textarea id="detail" name="detail" type="text" class="form-control" rows="5" placeholder="Masukkan Detail Hasil Panen"></textarea>
-                        </div>
-                        <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga Hasil Panen</label>
-                            <input id="harga" name="harga" type="text" class="form-control" placeholder="Masukkan Harga Hasil Panen (Rp)">
-                        </div>
-                        <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumlah Hasil Panen (Kg)</label>
-                            <input id="hasil" name="hasil" type="text" class="form-control" placeholder="Masukkan Jumlah Hasil Panen (Kg)">
-                        </div>
-                        <div class="col-sm-12 center text-center">
-                            <button type="submit" class="btn btn-reg mx-2">Input Hasil Panen</button>
-                        </div>
-                </form>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../Image/Petani-Sukses-2020.jpg" class="d-block w-100 " alt="...">
+              </div>
             </div>
         </div>
-    </div>
-    </div>
+      </section>
+      <section class="sec" id = "tentang">
+      <div class="row">
+      <center><h1>Hasil Panen Terbaik Kami</h1><br><br></center>
+        @foreach ($list as $l)
+            
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                    <img class="card-img-top"src="{{ asset('storage/Panen/' . $l->image) }}" alt="Gambar">
 
-    <div class="container">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$l -> name}}</h5>
+                            <p class="card-text">{{$l -> detail}}</p>
+                            <h3 class="card-title">Rp {{number_format($l -> harga)}}</h3>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-sm btn-outline-success">Beli Langsung</a>
+                                </div>
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">Masukan Kedalam Keranjang</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        @endforeach
+        </div>
+
+        <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
           <div class="col mb-3">
             <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
@@ -148,7 +135,9 @@
           </div>
         </footer>
       </div>
-      
-      <div class="b-example-divider"></div>
+
+      </section>
+
+
 </body>
 </html>

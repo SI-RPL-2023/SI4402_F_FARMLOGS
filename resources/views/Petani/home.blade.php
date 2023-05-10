@@ -23,21 +23,21 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link active" href="inputpanen">Jual Hasil Panen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
+                        <a class="nav-link active" href="#">Pinjaman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
+                        <a class="nav-link active" href="#">Bayar Pinjaman</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
-                    </li>
+                    </li> -->
                     </ul>
                 </div>
                 <div class="dropdown">
-                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">Halo petani</button></a>
+                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
