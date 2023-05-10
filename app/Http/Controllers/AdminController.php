@@ -24,6 +24,11 @@ class AdminController extends Controller
         return view('admin.profile');
     }
 
+    public function tambahproduk()
+    {
+        return view('admin.tambahproduk');
+=======
+
     public function tableadmin()
     {
         
@@ -50,5 +55,6 @@ class AdminController extends Controller
         $deletemakanan = Food::find($id);
         $deletemakanan->delete();
         return redirect('/Admin/tableadmin');
+
     }
 }

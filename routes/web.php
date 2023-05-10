@@ -56,9 +56,15 @@ Route::get('/artikelpetani', [ArtikelPetaniController::class,'index']);
 Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')->name('artikelpetani.show');
 
 
+
+Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
+Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
+Route::get('/admin/tambahproduk', [AdminController::class, 'tambahproduk'])->name('tambahproduk');
+=======
 // Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/totalhasilpanen', [AdminController::class, 'totalhasilpanen'])->name('totalhasilpanen');
+
 
 
 
