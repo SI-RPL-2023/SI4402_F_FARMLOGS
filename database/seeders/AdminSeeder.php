@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('111'),
             'id_roles' => '1',
             'nomor' => '',
-            'lahir' => '2023-09-13',
+            'lahir' => '0001-01-01',
             'daerah' => '',
         ]);    
     }
