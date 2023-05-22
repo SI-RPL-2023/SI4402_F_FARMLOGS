@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PetaniController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ArtikelPetaniController;
+use App\Http\Controllers\ResponseAdminController;
 
 
 /*
@@ -59,6 +60,6 @@ Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')-
 // Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/totalhasilpanen', [AdminController::class, 'totalhasilpanen'])->name('totalhasilpanen');
-
+Route::get('/Admin/responseadmin', [ResponseAdminController::class, 'viewadmin'])->middleware('roles:1');
 
 
