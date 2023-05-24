@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <title>Farmlogs</title>
-    <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
+    <link rel="icon" href="Image/LOGO RPL.png" type="image/icon type">
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/pembeli/home">
-                    <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
+                    <img src="../Image/LOGO RPL.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/pembeli/transaksi">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
               </div>
@@ -55,29 +55,35 @@
             </div>
         </nav>
     </header>
-      <section class="sec" id = "tentang">
+    <section class="sec" id = "tentang">
       <div class="row">
-      <center><h1>Hasil Panen Terbaik Kami</h1><br><br></center>
-        @foreach ($list as $l)
-            
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                    <img class="card-img-top"src="{{ asset('storage/Panen/' . $l->image) }}" alt="Gambar">
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{$l -> name}}</h5>
-                            <p class="card-text">{{$l -> detail}}</p>
-                            <h3 class="card-title">Rp {{number_format($l -> harga)}}</h3>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="/checkout/{{$l -> id}}" class="btn btn-sm btn-outline-success">Beli Langsung</a>
-                                </div>
+      <center><h1>Riwayat Transaksi</h1>
+      <p>Ini adalah riwayat transaksi dari para user Farmlogs</p>
+      <br><br></center>
+      <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                                    <thead class = "table-success">
+                                        <tr>
+                                            <th>Nama User</th>
+                                            <th>Nama Produk</th>
+                                            <th>Harga</th>
+                                            <th>Status Pesanan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                   
+                                        <tr>
+                                            <td>User 2</td>
+                                            <td>Bawang Merah</td>
+                                            <td>RP 90.000</td>
+                                            <td>Selesai</td>
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                </div>
-        @endforeach
-        </div>
 
         <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -123,3 +129,4 @@
 
 </body>
 </html>
+    
