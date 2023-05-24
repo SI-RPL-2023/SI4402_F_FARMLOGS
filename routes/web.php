@@ -43,6 +43,9 @@ Route::middleware('auth')->group(function () {
 // Pembeli
 Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name('profilepembeli');
 Route::get('/pembeli/menu', [UserController::class, 'menupembeli'])->name('menupembeli');
+Route::get('/pembeli/checkout', [UserController::class, 'checkoutpembeli'])->name('checkoutpembeli');
+Route::get('/checkout/{id}', [UserController::class, 'checkoutpembeli'])->name('checkoutpembeli');
+Route::post('/checkout', [UserController::class, 'inputpanen'])->name('inputpanen');
 
 // Artikel
 Route::get('/artikel', [ArtikelController::class,'index']);
@@ -56,7 +59,7 @@ Route::get('/artikelpetani', [ArtikelPetaniController::class,'index']);
 Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')->name('artikelpetani.show');
 
 
-
+// Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/tambahproduk', [AdminController::class, 'tambahproduk'])->name('tambahproduk');

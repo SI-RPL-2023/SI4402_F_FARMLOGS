@@ -88,8 +88,6 @@
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="tambahproduk">Gudang</a>
                         <a class="collapse-item active" href="blank.html">Blank Page</a>
-=======
-
                         <a class="collapse-item" href="/login">Login</a>
                         <a class="collapse-item" href="/register">Register</a>
 

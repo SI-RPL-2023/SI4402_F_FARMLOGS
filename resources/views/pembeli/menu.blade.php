@@ -82,7 +82,7 @@
                             <h3 class="card-title">Rp {{number_format($l -> harga)}}</h3>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="#" class="btn btn-sm btn-outline-success">Beli Langsung</a>
+                                    <a href="/checkout/{{$l -> id}}" class="btn btn-sm btn-outline-success">Beli Langsung</a>
                                 </div>
                                 <div class="btn-group">
                                     <a href="#" class="btn btn-sm btn-outline-secondary">Masukan Kedalam Keranjang</a>

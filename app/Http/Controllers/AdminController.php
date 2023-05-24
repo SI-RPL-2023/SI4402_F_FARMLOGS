@@ -27,8 +27,7 @@ class AdminController extends Controller
     public function tambahproduk()
     {
         return view('admin.tambahproduk');
-=======
-
+    }
     public function tableadmin()
     {
         

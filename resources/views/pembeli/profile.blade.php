@@ -16,8 +16,8 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
 
-                <a class="navbar-brand" href="/">
-                    <img src="../Image/LOGO RPL.png" width="80" height="">
+                <a class="navbar-brand" href="home">
+                    <img src="../Image/LOGO RPL.png" width="40" height="">
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/pembeli/home">Home</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>

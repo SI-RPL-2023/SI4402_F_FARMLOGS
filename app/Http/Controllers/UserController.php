@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\HasilPanen;
+use App\Models\CheckOut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -52,7 +53,7 @@ class UserController extends Controller
         $RegisterUser = User::create([
             'email' => $request->email,
             'nama' => $request->nama,
-            'id_roles' => 3,
+            'id' => 3,
             'nomor' => $request->nomor,
             'lahir' => $request->lahir,
             'daerah' => $request->daerah,
@@ -110,6 +111,29 @@ class UserController extends Controller
         return view('pembeli.profile');
     }
 
+    public function checkoutpembeli($id)
+    {
+        $list = CheckOut::find($id);
+        return view('pembeli.checkout', compact('list'));
+    }
+
+    public function inputpanen(Request $request){
+        $inputpanen = CheckOut::create([
+            'nama'=> $request->nama,
+            'email'=> $request->email,
+            'no_hp'=> $request->no_hp,
+            'alamat'=> $request->alamat,
+            'pembayaran' => $request -> pembayaran,
+            'name' => $request->name,
+            'harga' => $request->harga,
+            'status' => "Menunggu Konfirmasi"
+
+        ]);
+        if($inputpanen){
+            return redirect('/succes');
+        }
+    }
+
     public function updateprof(Request $request)
     {           
         $request->validate([
@@ -138,6 +162,7 @@ class UserController extends Controller
         $list = HasilPanen::all();
         return view('pembeli.menu',compact('list'));
     }
+    
 
 }
 
