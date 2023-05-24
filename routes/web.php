@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PetaniController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ArtikelPetaniController;
+use App\Http\Controllers\ResponseAdminController;
 
 
 /*
@@ -56,6 +57,15 @@ Route::get('/petani/inputpanen', [PetaniController::class, 'inputpanen'])->name(
 Route::post('/petani/inputpanen', [PetaniController::class, 'cekinput'])->name('cekinput');
 Route::get('/artikelpetani', [ArtikelPetaniController::class,'index']);
 Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')->name('artikelpetani.show');
+Route::get('/petani/peminjaman', [PetaniController::class, 'peminjaman'])->name('peminjaman');
+
+
+Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
+Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
+Route::get('/admin/tambahproduk', [AdminController::class, 'tambahproduk'])->name('tambahproduk');
+
+
+
 
 // Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
@@ -65,6 +75,7 @@ Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('pr
 Route::get('/admin/gudang', [AdminController::class, 'gudang'])->name('gudang');
 Route::get('/admin/hasiltani', [AdminController::class, 'hasiltani'])->name('hasiltani');
 Route::get('/admin/dana', [AdminController::class, 'dana'])->name('dana');
+Route::get('/Admin/responseadmin', [ResponseAdminController::class, 'viewadmin'])->middleware('roles:1');
 
 
 
