@@ -109,6 +109,10 @@ class UserController extends Controller
     {
         return view('pembeli.profile');
     }
+    public function transaksipembeli()
+    {
+        return view('pembeli.transaksi');
+    }
 
     public function updateprof(Request $request)
     {           
@@ -135,7 +139,7 @@ class UserController extends Controller
     
     public function menupembeli()
     {
-        $list = HasilPanen::all();
+        $list = HasilPanen::where('status', 'Terkonfirmasi')->get();
         return view('pembeli.menu',compact('list'));
     }
 

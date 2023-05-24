@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
 // Pembeli
 Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name('profilepembeli');
 Route::get('/pembeli/menu', [UserController::class, 'menupembeli'])->name('menupembeli');
+Route::get('/pembeli/transaksi', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
+
 
 // Artikel
 Route::get('/artikel', [ArtikelController::class,'index']);
@@ -64,12 +66,17 @@ Route::get('/admin/tambahproduk', [AdminController::class, 'tambahproduk'])->nam
 
 
 
-// Admin
-=======
 
+// Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/totalhasilpanen', [AdminController::class, 'totalhasilpanen'])->name('totalhasilpanen');
+Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
+Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
+Route::get('/admin/gudang', [AdminController::class, 'gudang'])->name('gudang');
+Route::get('/admin/hasiltani', [AdminController::class, 'hasiltani'])->name('hasiltani');
+Route::get('/admin/dana', [AdminController::class, 'dana'])->name('dana');
 Route::get('/Admin/responseadmin', [ResponseAdminController::class, 'viewadmin'])->middleware('roles:1');
+
 
 
 
