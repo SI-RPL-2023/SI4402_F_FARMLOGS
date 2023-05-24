@@ -27,8 +27,18 @@ class AdminController extends Controller
 
     public function gudang()
     {
+
+        return view('admin.tambahproduk');
+    }
+    public function tableadmin()
+    {
+        
+        $list = Food::all();
+        return view('Admin.tableadmin', compact(['list']));
+
         $hasil = HasilPanen::where('status', 'Terkonfirmasi')->get();
         return view('admin.gudang', compact(['hasil']));
+
     }
     public function dana()
     {

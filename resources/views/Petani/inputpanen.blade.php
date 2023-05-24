@@ -98,8 +98,8 @@
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumlah Hasil Panen (Kg)</label>
                             <input id="hasil" name="hasil" type="text" class="form-control" placeholder="Masukkan Jumlah Hasil Panen (Kg)">
                         </div>
-                        <div class="col-sm-12 center text-center">
-                            <button type="submit" class="btn btn-reg mx-2">Input Hasil Panen</button>
+                        <div class="form-group mt-3 center text-center">
+                            <button type="submit" class="btn btn-edit mx-2">Input Hasil Panen</button>
                         </div>
                 </form>
             </div>

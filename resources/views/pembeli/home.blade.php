@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/pembeli/home">
-                    <img src="../Image/LOGO RPL.png" width="80" height="">
+                    <img src="../Image/LOGO RPL.png" width="40" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
