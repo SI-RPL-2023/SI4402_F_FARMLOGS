@@ -218,7 +218,7 @@
 
 
                     <!-- Content Row -->
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                             <th scope="col">No</th>
@@ -238,8 +238,7 @@
                             <td>@mdo</td>
                             <td></td>
                             <td></td>
-                            <td><button type="button" class="btn btn-success">Diterima</button></td>
-                            <td><button type="button" class="btn btn-danger">Ditolak</button></td>
+                            <td><button type="button" class="btn btn-success">Diterima</button><br><br><button type="button" class="btn btn-danger">Ditolak</button></td>
                             </tr>
                             <tr>
                             <th scope="row">2</th>
@@ -248,12 +247,38 @@
                             <td>@fat</td>
                             <td></td>
                             <td></td>
-                            <td><button type="button" class="btn btn-success">Diterima</button></td>
-                            <td><button type="button" class="btn btn-danger">Ditolak</button></td>
+                            <td><button type="button" class="btn btn-success">Diterima</button><br><br><button type="button" class="btn btn-danger">Ditolak</button></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <br><br>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Nama Petani</th>
+                            <th scope="col">Nominal Dana</th>
+                            <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
                             </tr>
                             <tr>
                             <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
+                            <td>Larry</td>
+                            <td>the Bird</td>
                             <td>@twitter</td>
                             </tr>
                         </tbody>
