@@ -79,26 +79,14 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <h6 class="collapse-header">Login Screens:</h6>
-
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="tambahproduk">Gudang</a>
-                        <a class="collapse-item active" href="blank.html">Blank Page</a>
-                        <a class="collapse-item" href="/login">Login</a>
-                        <a class="collapse-item" href="/register">Register</a>
-
                         <h6 class="collapse-header">Pages:</h6>
 
 
                         <a class="collapse-item" href="/admin/gudang">Gudang</a>
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
-                        <a class="collapse-item" href="forgot-password.html">Update Transaksi Kostumer</a>
-                        <a class="collapse-item" href="forgot-password.html">Review Kostumer</a>
-                        <a class="collapse-item" href="/admin/dana">Verifikasi Peminjaman Dana</a>
+                        <a class="collapse-item" href="#">Update Transaksi Kostumer</a>
+                        <a class="collapse-item" href="#">Review Kostumer</a>
+                        <a class="collapse-item" href="/admin/dana">Hasil Tani</a>
 
                     </div>
                 </div>

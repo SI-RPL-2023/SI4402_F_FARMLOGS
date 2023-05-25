@@ -78,17 +78,17 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Product name</h6>
-              <small class="text-muted"></small>
+              <small class="text-muted">{{$list -> name}}</small>
             </div>
-            <span class="text-muted">Rp </span>
+            <span class="text-muted">Rp {{$list -> harga}}</span>
           </li>
         </ul>
 
         <form class="card p-2" method ="POST" action = "/checkout">
             @csrf 
-            <input type="hidden" name="name" value="">
-            <input type="hidden" name="harga" value="">
-            <img src="" alt="">
+            <input type="hidden" name="name" value="{{$list -> name}}">
+            <input type="hidden" name="harga" value="{{$list -> harga}}">
+            <img src="{{ asset ('storage/images/' .$list -> foto) }}" alt="">
       </div>
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Personal Data</h4>
