@@ -54,7 +54,7 @@
 
     <div class="w-10/12 ml-3 bg-white border border-gray-200 rounded-2xl shadow-md max-h-150vh overflow-auto p-4">
         <div class="row">
-            <p class="col text-blueDark text-xl" style="font-size: 28px;">Peminjaman Dana</p>
+            <p class="col text-blueDark text-xl" style="font-size: 28px;">Pembayaran Cicilan</p>
             @if ($errors->any())
             <div class="flex w-full p-4 mb-4 text-sm text-white bg-red-700 rounded-lg self-start" role="alert">
                 <ul class="mt-1.5 text-blue-700 list-disc list-inside">
@@ -81,7 +81,7 @@
                         <div class="col-sm-12 mb-3">
 
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Dana</label>
-                            <input id="dana" name="dana" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
+                            <input id="harga" name="harga" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Tujuan Peminjaman</label>
