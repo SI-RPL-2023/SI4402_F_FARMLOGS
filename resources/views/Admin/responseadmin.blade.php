@@ -217,9 +217,12 @@
                         <thead>
                             <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Tanggal</th>
-                            <th scope="col"></th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Foto Data Diri</th>
+                            <th scope="col">Nama Petani</th>
+                            <th scope="col">Nominal Dana</th>
+                            <th scope="col">Tujuan Peminjaman</th>
+                            <th scope="col">Foto Lahan Tani</th>
+                            <th scope="col">Verifikasi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -228,12 +231,20 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
+                            <td></td>
+                            <td></td>
+                            <td><button type="button" class="btn btn-success">Diterima</button></td>
+                            <td><button type="button" class="btn btn-danger">Ditolak</button></td>
                             </tr>
                             <tr>
                             <th scope="row">2</th>
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td>@fat</td>
+                            <td></td>
+                            <td></td>
+                            <td><button type="button" class="btn btn-success">Diterima</button></td>
+                            <td><button type="button" class="btn btn-danger">Ditolak</button></td>
                             </tr>
                             <tr>
                             <th scope="row">3</th>
