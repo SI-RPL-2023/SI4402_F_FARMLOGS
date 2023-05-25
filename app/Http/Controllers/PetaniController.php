@@ -27,6 +27,10 @@ class PetaniController extends Controller
     {
         return view('petani.peminjaman');
     }
+    public function cicilan()
+    {
+        return view('petani.cicilan');
+    }
     public function cekinput(Request $request){
         $ekstensi = $request->file('image')->clientExtension();
         $nama = $request->name.'-'.now()->timestamp.'.'.$ekstensi;

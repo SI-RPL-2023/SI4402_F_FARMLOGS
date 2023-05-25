@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('no_hp');
             $table->string('pembayaran');
             $table->string('name');
-            $table->string('harga');
+            $table->integer('harga');
             $table->string('status');
             $table->timestamps();
         });

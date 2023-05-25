@@ -64,6 +64,7 @@ Route::post('/petani/inputpanen', [PetaniController::class, 'cekinput'])->name('
 Route::get('/artikelpetani', [ArtikelPetaniController::class,'index']);
 Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')->name('artikelpetani.show');
 Route::get('/petani/peminjaman', [PetaniController::class, 'peminjaman'])->name('peminjaman');
+Route::get('/petani/cicilan', [PetaniController::class, 'cicilan'])->name('cicilan');
 
 // Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');

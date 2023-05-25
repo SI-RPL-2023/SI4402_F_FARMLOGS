@@ -54,7 +54,7 @@
 
     <div class="w-10/12 ml-3 bg-white border border-gray-200 rounded-2xl shadow-md max-h-150vh overflow-auto p-4">
         <div class="row">
-            <p class="col text-blueDark text-xl" style="font-size: 28px;">Peminjaman Dana</p>
+            <p class="col text-blueDark text-xl" style="font-size: 28px;">Pembayaran Cicilan</p>
             @if ($errors->any())
             <div class="flex w-full p-4 mb-4 text-sm text-white bg-red-700 rounded-lg self-start" role="alert">
                 <ul class="mt-1.5 text-blue-700 list-disc list-inside">

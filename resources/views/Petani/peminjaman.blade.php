@@ -81,7 +81,7 @@
                         <div class="col-sm-12 mb-3">
 
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Dana</label>
-                            <input id="harga" name="harga" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
+                            <input id="dana" name="dana" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Tujuan Peminjaman</label>

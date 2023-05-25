@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('pinjamdana', function (Blueprint $table) {
             $table->id();
+            $table->string('ktp');
+            $table->string('petani');
+            $table->integer('dana');
+            $table->string('tujuan');
+            $table->string('cicilan');
+            $table->string('lahan');
             $table->timestamps();
         });
     }
