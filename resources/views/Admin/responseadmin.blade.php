@@ -38,7 +38,7 @@
         <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
                 <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> -->
@@ -52,7 +52,7 @@
             <!-- Nav Item - Dashboard -->
 
             <li class="nav-item">
-                <a class="nav-link" href="dashboard">
+                <a class="nav-link" href="/admin/dashboard">
 
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -78,10 +78,15 @@
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
 
-                        <a class="collapse-item" href="/login">Login</a>
-                        <a class="collapse-item" href="/register">Register</a>
+                        <h6 class="collapse-header">Pages:</h6>
+
+
+                        <a class="collapse-item" href="/admin/gudang">Gudang</a>
+                        <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
+                        <a class="collapse-item" href="#">Update Transaksi Kostumer</a>
+                        <a class="collapse-item" href="#">Review Kostumer</a>
+                        <a class="collapse-item" href="/admin/dana">Hasil Tani</a>
 
                     </div>
                 </div>
