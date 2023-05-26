@@ -53,7 +53,7 @@ class UserController extends Controller
         $RegisterUser = User::create([
             'email' => $request->email,
             'nama' => $request->nama,
-            'id' => 3,
+            'id_roles' => 3,
             'nomor' => $request->nomor,
             'lahir' => $request->lahir,
             'daerah' => $request->daerah,
@@ -112,12 +112,13 @@ class UserController extends Controller
     }
     public function transaksipembeli()
     {
-        return view('pembeli.transaksi');
+        $list = CheckOut::all();
+        return view('pembeli.transaksi', compact('list'));
     }
 
     public function checkoutpembeli($id)
     {
-        $list = CheckOut::find($id);
+        $list = HasilPanen::find($id);
         return view('pembeli.checkout', compact('list'));
     }
 
@@ -125,7 +126,7 @@ class UserController extends Controller
         $inputpanen = CheckOut::create([
             'nama'=> $request->nama,
             'email'=> $request->email,
-            'no_hp'=> $request->no_hp,
+            'nomor'=> $request->nomor,
             'alamat'=> $request->alamat,
             'pembayaran' => $request -> pembayaran,
             'name' => $request->name,
@@ -134,7 +135,7 @@ class UserController extends Controller
 
         ]);
         if($inputpanen){
-            return redirect('/succes');
+            return redirect('/pembeli/home');
         }
     }
 

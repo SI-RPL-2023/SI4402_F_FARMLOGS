@@ -33,7 +33,7 @@
                     </li>
                     <li class="nav-item ml-2">
                         <a class="nav-link active" href="{{ url('/artikel') }}">Artikel</a>
-                    </li>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
@@ -72,14 +72,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                   
+                                    @foreach($list as $l)
                                         <tr>
-                                            <td>User 2</td>
-                                            <td>Bawang Merah</td>
-                                            <td>RP 90.000</td>
-                                            <td>Selesai</td>
+                                            <td>{{$l->nama}}</td>
+                                            <td>{{$l->name}}</td>
+                                            <td>{{$l->harga}}</td>
+                                            <td>{{$l->status}}</td>
                                         </tr>
-                                    
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
