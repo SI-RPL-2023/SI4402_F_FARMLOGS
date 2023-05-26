@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,15 +79,13 @@
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-
                         <h6 class="collapse-header">Pages:</h6>
-
 
                         <a class="collapse-item" href="/admin/gudang">Gudang</a>
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
-                        <a class="collapse-item" href="#">Update Transaksi Kostumer</a>
-                        <a class="collapse-item" href="#">Review Kostumer</a>
-                        <a class="collapse-item" href="/admin/dana">Verifikasi Peminjaman Dana</a>
+                        <a class="collapse-item" href="forgot-password.html">Update Transaksi Kostumer</a>
+                        <a class="collapse-item" href="forgot-password.html">Review Kostumer</a>
+                        <a class="collapse-item" href="forgot-password.html">Verifikasi Peminjaman Dana</a>
 
                     </div>
                 </div>
@@ -101,12 +100,6 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Validate</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/responseadmin">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Response</span></a>
-            </li>
-            <!--  -->
 
             <!-- Nav Item - Charts -->
 
@@ -213,69 +206,65 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Hasil Tani</h1>
+                    <p class="mb-4">Hasil Tani dari para petani</a>.</p>
 
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Penjualan</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Hasil Tani</th>
+                                            <th>Deskripsi Hasil Tani</th>
+                                            <th>Harga</th>
+                                            <th>Hasil</th>
+                                            <th>Foto</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                     @foreach($hasil as $h)
+                                        <tr>
+                                            <td>{{$h->name}}</td>   
+                                            <td>{{$h->detail }}</td>
+                                            <td>Rp {{$h->harga }}</td>
+                                            <td>{{$h->hasil }}</td>
+                                            <td><img src="{{ asset('storage/Panen/' . $h->image) }}" alt="" width: 100px; +-height: 100px;></td>
+                                                <td>
+                                                    <a href="/admin/acchasiltani/{{$h->id}}">
+                                                    <button type ="submit"  class="btn btn-success btn-edit">Konfirmasi</button>
+                                                    </a>
+                                                 <br><br>
+                                                    <form action=""  method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                        <button type ="submit"  class="btn btn-danger btn-edit">Hapus</button>
+                                                    </form>
+                                                </td>
+                                                
+                                        </tr>
+                                        @endforeach
+                                    
+                                        
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Hasil Penjualan </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp 0</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
 
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                User</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    
-            </div>
-            <!-- End of Main Content -->
+                    </div>
+                    <!-- End of Main Content -->
 
 
             

@@ -44,11 +44,10 @@ Route::middleware('auth')->group(function () {
 // Pembeli
 Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name('profilepembeli');
 Route::get('/pembeli/menu', [UserController::class, 'menupembeli'])->name('menupembeli');
-
 Route::get('/pembeli/checkout', [UserController::class, 'checkoutpembeli'])->name('checkoutpembeli');
 Route::get('/checkout/{id}', [UserController::class, 'checkoutpembeli'])->name('checkoutpembeli');
 Route::post('/checkout', [UserController::class, 'inputpanen'])->name('inputpanen');
-
+Route::get('/pembeli/transaksi/{id}', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
 Route::get('/pembeli/transaksi', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
 
 
@@ -70,11 +69,6 @@ Route::get('/petani/cicilan', [PetaniController::class, 'cicilan'])->name('cicil
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/tambahproduk', [AdminController::class, 'tambahproduk'])->name('tambahproduk');
-
-
-
-
-// Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/totalhasilpanen', [AdminController::class, 'totalhasilpanen'])->name('totalhasilpanen');
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
@@ -83,7 +77,8 @@ Route::get('/admin/gudang', [AdminController::class, 'gudang'])->name('gudang');
 Route::get('/admin/hasiltani', [AdminController::class, 'hasiltani'])->name('hasiltani');
 Route::get('/admin/dana', [AdminController::class, 'dana'])->name('dana');
 Route::get('/Admin/responseadmin', [ResponseAdminController::class, 'viewadmin'])->middleware('roles:1');
-
+Route::get('/admin/acchasiltani/{id}', [AdminController::class, 'acchasiltani'])->name('acchasiltani');
+Route::put('/admin/acchasiltani/{id}', [AdminController::class, 'confirm'])->name('confirm');
 
 
 

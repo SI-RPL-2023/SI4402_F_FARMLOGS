@@ -88,7 +88,7 @@
             @csrf 
             <input type="hidden" name="name" value="{{$list -> name}}">
             <input type="hidden" name="harga" value="{{$list -> harga}}">
-            <img src="{{ asset ('storage/images/' .$list -> foto) }}" alt="">
+            <img src="{{ asset ('storage/Panen/' .$list -> image) }}" alt="">
       </div>
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Personal Data</h4>
@@ -114,7 +114,7 @@
 
             <div class="col-12">
               <label for="address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="" required name ="alamat" value ="{{ Auth::user()->alamat }}">
+              <input type="text" class="form-control" id="address" placeholder="" required name ="alamat">
               <div class="invalid-feedback">
                 Please enter your  address.
               </div>
@@ -122,7 +122,7 @@
 
             <div class="col-12">
               <label for="address2" class="form-label">No hp </label>
-              <input type="text" class="form-control" id="address2" placeholder="" required name = "no_hp" value ="{{ Auth::user()->no_hp }}">
+              <input type="text" class="form-control" id="address2" placeholder="" required name = "nomor" value ="{{ Auth::user()->nomor}}">
             </div>
 
           </div>
@@ -148,7 +148,7 @@
 
           <hr class="my-4">
 
-          <button class="w-100 btn btn-book-a-table" type="submit">Pay</button>
+          <button class="w-100 btn btn-success" type="submit">Pay</button>
         </form>
       </div>
     </div>
