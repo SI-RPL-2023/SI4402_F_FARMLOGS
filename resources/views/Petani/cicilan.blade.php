@@ -51,66 +51,48 @@
     </header>
 
 <body>
+         <!-- Begin Page Content -->
+         <div class="container-fluid">
 
-    <div class="w-10/12 ml-3 bg-white border border-gray-200 rounded-2xl shadow-md max-h-150vh overflow-auto p-4">
-        <div class="row">
-            <p class="col text-blueDark text-xl" style="font-size: 28px;">Pembayaran Cicilan</p>
-            @if ($errors->any())
-            <div class="flex w-full p-4 mb-4 text-sm text-white bg-red-700 rounded-lg self-start" role="alert">
-                <ul class="mt-1.5 text-blue-700 list-disc list-inside">
-                    {!! implode('', $errors->all('<li style="color: #373737;">:message</li>')) !!}
-                </ul>
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Pembayaran Cicilan</h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
             </div>
-            @endif
-        </div>
-        <div class="block w-full p-4 bg-white border border-gray-200 rounded-lg shadow-md mt-4">
-            <div class="w-full flex justify-center">
-                <form action="" method="POST" class="w-full" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row text-left">
-                        <div class="col-sm-12 mb-3">
-                            <div class="before" id="before">
-                                <label class="form-label">Foto Data Diri (KTP)</label>
-                                <input type="file" onchange="loadFile(this)" id="ktp" name="ktp" class="form-control">                                
-                            </div>
-                        </div>
-                        <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Petani</label>
-                            <input id="petani" name="petani" type="text" class="form-control" placeholder="">
-                        </div>
-                        <div class="col-sm-12 mb-3">
-
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Dana</label>
-                            <input id="harga" name="harga" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
-                        </div>
-                        <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Tujuan Peminjaman</label>
-                            <input id="tujuan" name="tujuan" type="text" class="form-control" placeholder="Contoh : Untuk membeli bibit cabai">
-                        </div>                        
-                        <div class="col-sm-12 mb-3"><p>Durasi Cicilan</p>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="3bulan" value="3bulan">
-                                <label class="form-check-label" for="inlineRadio2">3 Bulan</label>                                
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="6bulan" value="6bulan">
-                                <label class="form-check-label" for="inlineRadio2">6 Bulan</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="12bulan" value="12bulan">
-                                <label class="form-check-label" for="inlineRadio2">12 Bulan</label>                                
-                            </div>
-                        </div>                        
-                        <div class="col-sm-12 mb-3">
-                            <div class="before" id="before">
-                                <label class="form-label">Foto Lahan Tani</label>
-                                <input type="file" onchange="loadFile(this)" id="lahan" name="lahan" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 center text-center">
-                            <button type="submit" class="btn btn-reg mx-2 btn-success">Konfirmasi</button>
-                        </div>
-                </form>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nama Peminjam</th>
+                                <th>Tanggal Peminjaman</th>
+                                <th>Total Tagihan</th>
+                                <th>Jatuh Tempo</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($list as $x)    
+                            <tr>
+                                <td>{{$x->petani}}</td>
+                                <td>{{$x->created_at}}</td>
+                                <td>{{$x->dana}}</td>
+                                <td>{{$x->jatuhtempo}}</td>
+                                <td>{{$x->status}}</td>
+                                    <td>
+                                    <button type ="submit"  class="btn btn-success btn-edit">Bayar</button>                                    
+                                    </td>                                    
+                            </tr>
+                        @endforeach
+                        
+                            
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

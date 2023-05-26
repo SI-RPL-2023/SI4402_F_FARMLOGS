@@ -44,11 +44,9 @@ Route::middleware('auth')->group(function () {
 // Pembeli
 Route::get('/pembeli/profile', [UserController::class, 'profilepembeli'])->name('profilepembeli');
 Route::get('/pembeli/menu', [UserController::class, 'menupembeli'])->name('menupembeli');
-
 Route::get('/pembeli/checkout', [UserController::class, 'checkoutpembeli'])->name('checkoutpembeli');
 Route::get('/checkout/{id}', [UserController::class, 'checkoutpembeli'])->name('checkoutpembeli');
 Route::post('/checkout', [UserController::class, 'inputpanen'])->name('inputpanen');
-
 Route::get('/pembeli/transaksi', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
 
 
@@ -64,6 +62,7 @@ Route::post('/petani/inputpanen', [PetaniController::class, 'cekinput'])->name('
 Route::get('/artikelpetani', [ArtikelPetaniController::class,'index']);
 Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')->name('artikelpetani.show');
 Route::get('/petani/peminjaman', [PetaniController::class, 'peminjaman'])->name('peminjaman');
+Route::post('/petani/peminjaman', [PetaniController::class, 'peminjamandana'])->name('peminjamandana');
 Route::get('/petani/cicilan', [PetaniController::class, 'cicilan'])->name('cicilan');
 
 // Admin
