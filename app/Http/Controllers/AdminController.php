@@ -28,14 +28,6 @@ class AdminController extends Controller
     public function gudang()
     {
 
-        return view('admin.tambahproduk');
-    }
-    public function tableadmin()
-    {
-        
-        $list = Food::all();
-        return view('Admin.tableadmin', compact(['list']));
-
         $hasil = HasilPanen::where('status', 'Terkonfirmasi')->get();
         return view('admin.gudang', compact(['hasil']));
 
@@ -49,33 +41,14 @@ class AdminController extends Controller
         $hasil = HasilPanen::where('status', 'Menunggu Konfirmasi')->get();
         return view('admin.hasiltani', compact(['hasil']));
     }
-
-    // public function tableadmin()
-    // {
-        
-    //     $list = Food::all();
-    //     return view('Admin.tableadmin', compact(['list']));
-    // }
-    // public function konfirmasi($id)
-    // {
-    //     $list = Transactions::find($id);
-    //     return view('Admin.konfirmasi' , compact(['list']));
-    // }
-    // public function validateadmin()
-    // {
-   
-    //     $list = Transactions::all();
-    //     return view('Admin.validateadmin', compact(['list']));
-    // }
-    // public function konfirmasipesanan(Request $request, $id){
-    //     $konfirmasipesanan = Transactions::find($id);
-    //     $konfirmasipesanan->update($request->except('_token'));
-    //     return redirect('/Admin/validateadmin');
-    // }
-    // public function deletemakanan($id){
-    //     $deletemakanan = Food::find($id);
-    //     $deletemakanan->delete();
-    //     return redirect('/Admin/tableadmin');
-
-    // }
+    public function acchasiltani($id)
+    {
+        $list = HasilPanen::find($id);
+        return view('admin.acchasiltani' , compact(['list']));
+    }
+    public function confirm(Request $request, $id){
+        $konfirmasihasiltani = HasilPanen::find($id);
+        $konfirmasihasiltani->update($request->except('_token'));
+        return redirect('/admin/hasiltani');
+    }
 }
