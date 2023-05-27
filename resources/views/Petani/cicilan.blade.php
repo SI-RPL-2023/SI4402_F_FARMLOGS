@@ -10,11 +10,11 @@
     <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
-<body>
+
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/pembeli/home">
+                <a class="navbar-brand" href="/petani/home">
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,14 +26,11 @@
                         <a class="nav-link active" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/pembeli/menu">Hasil Panen</a>
+                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
                     </li>
-                    <li class="nav-item ml-2">
-                        <a class="nav-link active" href="{{ url('/artikel') }}">Artikel</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
@@ -43,43 +40,65 @@
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/pembeli/transaksi">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
               </div>
-              </div>
-                </span>
-                </div>
-                </div>
             </div>
             </div>
         </nav>
     </header>
-      <section class="sec" id = "tentang">
-      <div class="row">
-      <center><h1>Hasil Panen Terbaik Kami</h1><br><br></center>
-        @foreach ($list as $l)
-            
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                    <img class="card-img-top"src="{{ asset('storage/Panen/' . $l->image) }}" alt="Gambar">
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{$l -> name}}</h5>
-                            <p class="card-text">{{$l -> detail}}</p>
-                            <h3 class="card-title">Rp {{number_format($l -> harga)}}</h3>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="/checkout/{{$l -> id}}" class="btn btn-sm btn-outline-success">Beli Langsung</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<body>
+         <!-- Begin Page Content -->
+         <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Pembayaran Cicilan</h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nama Peminjam</th>
+                                <th>Tanggal Peminjaman</th>
+                                <th>Total Tagihan</th>
+                                <th>Jatuh Tempo</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($list as $x)    
+                            <tr>
+                                <td>{{$x->petani}}</td>
+                                <td>{{$x->created_at}}</td>
+                                <td>{{$x->dana}}</td>
+                                <td>{{$x->jatuhtempo}}</td>
+                                <td>{{$x->status}}</td>
+                                    <td>
+                                    <button type ="submit"  class="btn btn-success btn-edit">Bayar</button>                                    
+                                    </td>                                    
+                            </tr>
+                        @endforeach
+                        
+                            
+                        </tbody>
+                    </table>
                 </div>
-        @endforeach
+            </div>
         </div>
+    </div>
+    </div>
 
-        <div class="container">
+    <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
           <div class="col mb-3">
             <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
@@ -120,6 +139,7 @@
           </div>
         </footer>
       </div>
-
+      
+      <div class="b-example-divider"></div>
 </body>
 </html>

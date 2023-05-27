@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\HasilPanen;
+use App\Models\CheckOut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -109,6 +110,34 @@ class UserController extends Controller
     {
         return view('pembeli.profile');
     }
+    public function transaksipembeli()
+    {
+        $list = CheckOut::all();
+        return view('pembeli.transaksi', compact('list'));
+    }
+
+    public function checkoutpembeli($id)
+    {
+        $list = HasilPanen::find($id);
+        return view('pembeli.checkout', compact('list'));
+    }
+
+    public function inputpanen(Request $request){
+        $inputpanen = CheckOut::create([
+            'nama'=> $request->nama,
+            'email'=> $request->email,
+            'nomor'=> $request->nomor,
+            'alamat'=> $request->alamat,
+            'pembayaran' => $request -> pembayaran,
+            'name' => $request->name,
+            'harga' => $request->harga,
+            'status' => "Menunggu Konfirmasi"
+
+        ]);
+        if($inputpanen){
+            return redirect('/pembeli/home');
+        }
+    }
 
     public function updateprof(Request $request)
     {           
@@ -135,9 +164,10 @@ class UserController extends Controller
     
     public function menupembeli()
     {
-        $list = HasilPanen::all();
+        $list = HasilPanen::where('status', 'Terkonfirmasi')->get();
         return view('pembeli.menu',compact('list'));
     }
+    
 
 }
 

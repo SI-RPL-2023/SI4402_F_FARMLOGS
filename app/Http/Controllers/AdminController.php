@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\HasilPanen;
+use App\Models\CheckOut;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -24,31 +27,48 @@ class AdminController extends Controller
         return view('admin.profile');
     }
 
-    public function tableadmin()
+    public function gudang()
     {
-        
-        $list = Food::all();
-        return view('Admin.tableadmin', compact(['list']));
+
+        $hasil = HasilPanen::where('status', 'Terkonfirmasi')->get();
+        return view('admin.gudang', compact(['hasil']));
+
     }
-    public function konfirmasi($id)
+
+    public function dana()
     {
-        $list = Transactions::find($id);
-        return view('Admin.konfirmasi' , compact(['list']));
+        return view('admin.dana');
     }
-    public function validateadmin()
+    public function hasiltani()
     {
-   
-        $list = Transactions::all();
-        return view('Admin.validateadmin', compact(['list']));
+        $hasil = HasilPanen::where('status', 'Menunggu Konfirmasi')->get();
+        return view('admin.hasiltani', compact(['hasil']));
     }
-    public function konfirmasipesanan(Request $request, $id){
-        $konfirmasipesanan = Transactions::find($id);
-        $konfirmasipesanan->update($request->except('_token'));
-        return redirect('/Admin/validateadmin');
+    
+    public function acchasiltani($id)
+    {
+        $list = HasilPanen::find($id);
+        return view('admin.acchasiltani' , compact(['list']));
     }
-    public function deletemakanan($id){
-        $deletemakanan = Food::find($id);
-        $deletemakanan->delete();
-        return redirect('/Admin/tableadmin');
+    public function confirm(Request $request, $id){
+        $konfirmasihasiltani = HasilPanen::find($id);
+        $konfirmasihasiltani->update($request->except('_token'));
+        return redirect('/admin/hasiltani');
+    }
+
+    public function transaksi()
+    {
+        $trans = CheckOut::where('status', 'Menunggu Konfirmasi')->get();
+        return view('admin.transaksi', compact(['trans']));
+    }
+    public function acctransaksi($id)
+    {
+        $list = CheckOut::find($id);
+        return view('admin.acctransaksi' , compact(['list']));
+    }
+    public function confirmm(Request $requestt, $id){
+        $konfirmasitransaksi = CheckOut::find($id);
+        $konfirmasitransaksi->update($requestt->except('_token'));
+        return redirect('/admin/transaksi');
     }
 }

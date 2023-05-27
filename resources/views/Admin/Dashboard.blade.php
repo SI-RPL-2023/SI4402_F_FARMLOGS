@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,10 +78,15 @@
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
 
-                        <a class="collapse-item" href="/login">Login</a>
-                        <a class="collapse-item" href="/register">Register</a>
+                        <h6 class="collapse-header">Pages:</h6>
+
+
+                        <a class="collapse-item" href="/admin/gudang">Gudang</a>
+                        <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
+                        <a class="collapse-item" href="/admin/transaksi">Transaksi Customer</a>
+                        <a class="collapse-item" href="#">Review Customer</a>
+                        <a class="collapse-item" href="/admin/dana">Verifikasi Peminjaman Dana</a>
 
                     </div>
                 </div>

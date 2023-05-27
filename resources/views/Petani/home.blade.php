@@ -42,6 +42,8 @@
                   <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
                   <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
+                  <li><a class="dropdown-item" href="/petani/peminjaman">Peminjaman Dana</a></li>
+                  <li><a class="dropdown-item" href="/petani/cicilan">Pembayaran Cicilan</a></li>
                   <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>

@@ -54,7 +54,7 @@
 
     <div class="w-10/12 ml-3 bg-white border border-gray-200 rounded-2xl shadow-md max-h-150vh overflow-auto p-4">
         <div class="row">
-            <p class="col text-blueDark text-xl" style="font-size: 28px;">Hasil Panen</p>
+            <p class="col text-blueDark text-xl" style="font-size: 28px;">Peminjaman Dana</p>
             @if ($errors->any())
             <div class="flex w-full p-4 mb-4 text-sm text-white bg-red-700 rounded-lg self-start" role="alert">
                 <ul class="mt-1.5 text-blue-700 list-disc list-inside">
@@ -69,37 +69,49 @@
                     @csrf
                     <div class="row text-left">
                         <div class="col-sm-12 mb-3">
-                            <div class="before" id="before" style="display: block;">
-                                <label class="custom-file-upload">
-                                    <i class="fa-solid fa-plus" style="color:#5B5B5B;font-size:50px;"></i>
-                                    <p style="color:#373737;">Gambar Hasil Panen</p>
-                                    <input type="file" onchange="loadFile(this)" id="image" name="image" class="form-control-file">
-                                </label>
-                            </div>
-                            <div class="after" id="after" style="display: none;">
-                                <center>
-                                    <img class="mb-2" id="output" style="max-width: 100%;height:200px;object-fit:cover;" />
-                                </center>
+                            <div class="before" id="before">
+                                <label class="form-label">Foto Data Diri (KTP)</label>
+                                <input type="file" onchange="loadFile(this)" id="ktp" name="ktp" class="form-control">                                
                             </div>
                         </div>
                         <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Hasil Panen</label>
-                            <input id="name" name="name" type="text" class="form-control" placeholder="Masukkan Nama Hasil Panen">
+                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Petani</label>
+                            <input id="petani" name="petani" type="text" class="form-control" placeholder="">
                         </div>
                         <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Detail Hasil Panen</label>
-                            <textarea id="detail" name="detail" type="text" class="form-control" rows="5" placeholder="Masukkan Detail Hasil Panen"></textarea>
+                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
+                            <input id="alamat" name="alamat" type="text" class="form-control" placeholder="">
+                        <div class="col-sm-12 mb-3">
+                        <div class="col-sm-12 mb-3">
+                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Dana</label>
+                            <input id="dana" name="dana" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
                         </div>
                         <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga Hasil Panen</label>
-                            <input id="harga" name="harga" type="text" class="form-control" placeholder="Masukkan Harga Hasil Panen (Rp)">
-                        </div>
+                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Tujuan Peminjaman</label>
+                            <input id="tujuan" name="tujuan" type="text" class="form-control" placeholder="Contoh : Untuk membeli bibit cabai">
+                        </div>                        
+                        <div class="col-sm-12 mb-3"><p>Durasi Cicilan</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cicilan" id="3bulan" value="3bulan">
+                                <label class="form-check-label" for="inlineRadio2">3 Bulan</label>                                
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cicilan" id="6bulan" value="6bulan">
+                                <label class="form-check-label" for="inlineRadio2">6 Bulan</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="cicilan" id="12bulan" value="12bulan">
+                                <label class="form-check-label" for="inlineRadio2">12 Bulan</label>                                
+                            </div>
+                        </div>                                    
                         <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumlah Hasil Panen (Kg)</label>
-                            <input id="hasil" name="hasil" type="text" class="form-control" placeholder="Masukkan Jumlah Hasil Panen (Kg)">
-                        </div>
-                        <div class="form-group mt-3 center text-center">
-                            <button type="submit" class="btn btn-edit mx-2">Input Hasil Panen</button>
+                            <div class="before" id="before">
+                                <label class="form-label">Foto Lahan Tani</label>
+                                <input type="file" onchange="loadFile(this)" id="lahan" name="lahan" class="form-control">
+                            </div>
+                        </div>   
+                        <div class="col-sm-12 center text-center">
+                            <button type="submit" class="btn btn-reg mx-2 btn-success">Konfirmasi</button>
                         </div>
                 </form>
             </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +39,7 @@
         <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
                 <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> -->
@@ -52,7 +53,7 @@
             <!-- Nav Item - Dashboard -->
 
             <li class="nav-item">
-                <a class="nav-link" href="/admin/dashboard">
+                <a class="nav-link" href="dashboard">
 
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -78,15 +79,13 @@
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-
                         <h6 class="collapse-header">Pages:</h6>
-
 
                         <a class="collapse-item" href="/admin/gudang">Gudang</a>
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
                         <a class="collapse-item" href="/admin/transaksi">Transaksi Customer</a>
-                        <a class="collapse-item" href="#">Review Customer</a>
-                        <a class="collapse-item" href="/admin/dana">Hasil Tani</a>
+                        <a class="collapse-item" href="forgot-password.html">Review Customer</a>
+                        <a class="collapse-item" href="forgot-password.html">Verifikasi Peminjaman Dana</a>
 
                     </div>
                 </div>
@@ -101,12 +100,6 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Validate</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/responseadmin">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Response</span></a>
-            </li>
-            <!--  -->
 
             <!-- Nav Item - Charts -->
 
@@ -213,73 +206,110 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Transaksi Konsumen</h1>
+                    <p class="mb-4">Tabel Transaksi dari Konsumen</a>.</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Pembeli</th>
+                                            <th>Nama Barang</th>
+                                            <th>Harga</th>
+                                            <th>Payment</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                     @foreach($trans as $k)
+                                        <tr>
+                                            <td>{{$k->nama}}</td>   
+                                            <td>{{$k->name }}</td>
+                                            <td>Rp {{$k->harga }}</td>
+                                            <td>{{$k->pembayaran }}</td>
+                                            <td>{{$k->hasil }}
+                                                
+                                                    <a href="/admin/acctransaksi/{{$k->id}}">
+                                                    <button type ="submit"  class="btn btn-success btn-edit">Konfirmasi</button>
+                                                    </a>
+                                                 <br><br>
+                                                    <form action=""  method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                        <button type ="submit"  class="btn btn-danger btn-edit">Hapus</button>
+                                                    </form>
+                                                </td>
+                                                
+                                        </tr>
+                                        @endforeach
+                                    
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    <!-- /.container-fluid -->
+
+                    </div>
+                    <!-- End of Main Content -->
 
 
-                    <!-- Content Row -->
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Foto Data Diri</th>
-                            <th scope="col">Nama Petani</th>
-                            <th scope="col">Nominal Dana</th>
-                            <th scope="col">Tujuan Peminjaman</th>
-                            <th scope="col">Foto Lahan Tani</th>
-                            <th scope="col">Verifikasi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-success">Diterima</button><br><br><button type="button" class="btn btn-danger">Ditolak</button></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-success">Diterima</button><br><br><button type="button" class="btn btn-danger">Ditolak</button></td>
-                            </tr>
-                        </tbody>
-                        </table>
-                        <br><br>
+            
 
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Nama Petani</th>
-                            <th scope="col">Nominal Dana</th>
-                            <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                        </table>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{asset('template/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{asset('template/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{asset('template/js/sb-admin-2.min.js')}}"></script>
+
+</body>
+
+</html>
