@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
 
@@ -9,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-  
 
     <title>Dashboard Admin</title>
 
@@ -22,7 +20,6 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
-    <link rel="icon" href="Image/LOGO RPL.png" type="image/icon type">
     <style>
         .navcolor{
             background:#107953 !important;
@@ -208,54 +205,63 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Gudang</h1>
-                        <p class="mb-4">Hasil Tani yang akan dijual ke User</p>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Transaksi Konsumen</h1>
+                    <p class="mb-4">Konfirmasi Transaksi dari Konsumen</a>.</p>
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                       
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Hasil Tani</th>
-                                            <th>Deskripsi Hasil Tani</th>
-                                            <th>Harga</th>
-                                            <th>Hasil</th>
-                                            <th>Foto</th>
-                                     
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                     @foreach($hasil as $h)
-                                        <tr>
-                                            <td>{{$h->name}}</td>
-                                            <td>{{$h->detail }}</td>
-                                            <td>Rp {{$h->harga }}</td>
-                                            <td>{{$h->hasil }} Kg</td>
-                                            <td><img src="{{ asset('storage/Panen/' . $h->image) }}" alt="" width: 100px; +-height: 100px;></td>
-                                               
-                                                
-                                        </tr>
-                                        @endforeach
-                                    
-                                        
-                                    </tbody>
-                                </table>
-                                </div>
-                            </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                            
+                            </h6>
                         </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                            <div class="container">
+                <form action="" method="POST" enctype="multipart/form-data">
+                @method('put') 
+                @csrf      
+            
+                <div class="form-floating">
+                    <label for="floatingInput">Nama  Pelanggan</label>
+                    <input value = "{{$list -> nama}}"type="text " class="form-control " id="floatingInput" placeholder="" name="nama" readonly>
+                </div>
+                <div class="form-floating">
+                    <label for="floatingInput">Nama Barang</label>
+                    <input value = "{{$list -> name}}"type="text " class="form-control " id="floatingInput" placeholder="" name="name" readonly>
+                </div>
+                <div class="form-floating">
+                    <label for="floatingInput">Harga </label>
+                    <input value = "{{$list -> harga}}"type="text " class="form-control " id="floatingInput" placeholder="" name="harga" readonly>
+                </div>
+                <div class="form-floating">
+                    <label for="floatingInput">Metode Pembayaran</label>
+                    <input value = "{{$list -> pembayaran}}"type="text " class="form-control " id="floatingInput" placeholder="" name="pembayaran" readonly>
+                </div>
+                <div class="form-floating">
+                    <label for="floatingInput">Status Pesanan</label>
+                    <select class="form-select form-control " aria-label="Default select example" name="status">
+                        <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                        <option value="Dikirim">Dikirim</option>
+                    </select>
+                </div>
+                <br>
 
-                        </div>
-                        <!-- /.container-fluid -->
+                <br><br>
+                <button class="w-25 btn navcolor text-white"  type="submit">Submit</button>
+                <br><br>
+                </form>
+                </div>
 
-                        </div>
-            <!-- End of Main Content -->
+                    </div>
+                    <!-- /.container-fluid -->
+
+                    </div>
+                    <!-- End of Main Content -->
 
 
             

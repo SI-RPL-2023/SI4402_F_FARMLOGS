@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-  
 
     <title>Dashboard Admin</title>
 
@@ -22,7 +21,6 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
-    <link rel="icon" href="Image/LOGO RPL.png" type="image/icon type">
     <style>
         .navcolor{
             background:#107953 !important;
@@ -208,38 +206,48 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Gudang</h1>
-                        <p class="mb-4">Hasil Tani yang akan dijual ke User</p>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Transaksi Konsumen</h1>
+                    <p class="mb-4">Tabel Transaksi dari Konsumen</a>.</p>
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                       
-                            <div class="card-body">
-                                <div class="table-responsive">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nama Hasil Tani</th>
-                                            <th>Deskripsi Hasil Tani</th>
+                                            <th>Nama Pembeli</th>
+                                            <th>Nama Barang</th>
                                             <th>Harga</th>
-                                            <th>Hasil</th>
-                                            <th>Foto</th>
-                                     
+                                            <th>Payment</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                     @foreach($hasil as $h)
+                                     @foreach($trans as $k)
                                         <tr>
-                                            <td>{{$h->name}}</td>
-                                            <td>{{$h->detail }}</td>
-                                            <td>Rp {{$h->harga }}</td>
-                                            <td>{{$h->hasil }} Kg</td>
-                                            <td><img src="{{ asset('storage/Panen/' . $h->image) }}" alt="" width: 100px; +-height: 100px;></td>
-                                               
+                                            <td>{{$k->nama}}</td>   
+                                            <td>{{$k->name }}</td>
+                                            <td>Rp {{$k->harga }}</td>
+                                            <td>{{$k->pembayaran }}</td>
+                                            <td>{{$k->hasil }}
+                                                
+                                                    <a href="/admin/acctransaksi/{{$k->id}}">
+                                                    <button type ="submit"  class="btn btn-success btn-edit">Konfirmasi</button>
+                                                    </a>
+                                                 <br><br>
+                                                    <form action=""  method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                        <button type ="submit"  class="btn btn-danger btn-edit">Hapus</button>
+                                                    </form>
+                                                </td>
                                                 
                                         </tr>
                                         @endforeach
@@ -247,15 +255,15 @@
                                         
                                     </tbody>
                                 </table>
-                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        </div>
-                        <!-- /.container-fluid -->
+                    </div>
+                    <!-- /.container-fluid -->
 
-                        </div>
-            <!-- End of Main Content -->
+                    </div>
+                    <!-- End of Main Content -->
 
 
             

@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\HasilPanen;
+use App\Models\CheckOut;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -32,6 +34,7 @@ class AdminController extends Controller
         return view('admin.gudang', compact(['hasil']));
 
     }
+
     public function dana()
     {
         return view('admin.dana');
@@ -41,6 +44,7 @@ class AdminController extends Controller
         $hasil = HasilPanen::where('status', 'Menunggu Konfirmasi')->get();
         return view('admin.hasiltani', compact(['hasil']));
     }
+    
     public function acchasiltani($id)
     {
         $list = HasilPanen::find($id);
@@ -50,5 +54,21 @@ class AdminController extends Controller
         $konfirmasihasiltani = HasilPanen::find($id);
         $konfirmasihasiltani->update($request->except('_token'));
         return redirect('/admin/hasiltani');
+    }
+
+    public function transaksi()
+    {
+        $trans = CheckOut::where('status', 'Menunggu Konfirmasi')->get();
+        return view('admin.transaksi', compact(['trans']));
+    }
+    public function acctransaksi($id)
+    {
+        $list = CheckOut::find($id);
+        return view('admin.acctransaksi' , compact(['list']));
+    }
+    public function confirmm(Request $requestt, $id){
+        $konfirmasitransaksi = CheckOut::find($id);
+        $konfirmasitransaksi->update($requestt->except('_token'));
+        return redirect('/admin/transaksi');
     }
 }

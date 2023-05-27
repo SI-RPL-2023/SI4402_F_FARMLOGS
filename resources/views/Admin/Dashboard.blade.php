@@ -84,8 +84,8 @@
 
                         <a class="collapse-item" href="/admin/gudang">Gudang</a>
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
-                        <a class="collapse-item" href="#">Update Transaksi Kostumer</a>
-                        <a class="collapse-item" href="#">Review Kostumer</a>
+                        <a class="collapse-item" href="/admin/transaksi">Transaksi Customer</a>
+                        <a class="collapse-item" href="#">Review Customer</a>
                         <a class="collapse-item" href="/admin/dana">Verifikasi Peminjaman Dana</a>
 
                     </div>
