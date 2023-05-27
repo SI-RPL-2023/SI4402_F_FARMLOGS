@@ -79,7 +79,10 @@
                             <input id="petani" name="petani" type="text" class="form-control" placeholder="">
                         </div>
                         <div class="col-sm-12 mb-3">
-
+                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
+                            <input id="alamat" name="alamat" type="text" class="form-control" placeholder="">
+                        <div class="col-sm-12 mb-3">
+                        <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Dana</label>
                             <input id="dana" name="dana" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
                         </div>
@@ -100,13 +103,13 @@
                                 <input class="form-check-input" type="radio" name="cicilan" id="12bulan" value="12bulan">
                                 <label class="form-check-label" for="inlineRadio2">12 Bulan</label>                                
                             </div>
-                        </div>                        
+                        </div>                                    
                         <div class="col-sm-12 mb-3">
                             <div class="before" id="before">
                                 <label class="form-label">Foto Lahan Tani</label>
                                 <input type="file" onchange="loadFile(this)" id="lahan" name="lahan" class="form-control">
                             </div>
-                        </div>
+                        </div>   
                         <div class="col-sm-12 center text-center">
                             <button type="submit" class="btn btn-reg mx-2 btn-success">Konfirmasi</button>
                         </div>

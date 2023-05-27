@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pinjamdana', function (Blueprint $table) {
+        Schema::create('peminjaman', function (Blueprint $table) {
             $table->id();
             $table->string('ktp');
             $table->string('petani');
+            $table->string('alamat');
             $table->integer('dana');
             $table->string('tujuan');
             $table->string('cicilan');
             $table->string('lahan');
+            $table->date('jatuhtempo');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pinjamdana');
+        Schema::dropIfExists('peminjaman');
     }
 };
