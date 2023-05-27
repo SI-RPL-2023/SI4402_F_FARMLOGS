@@ -82,8 +82,8 @@
 
                         <a class="collapse-item" href="/admin/gudang">Gudang</a>
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
-                        <a class="collapse-item" href="forgot-password.html">Update Transaksi Kostumer</a>
-                        <a class="collapse-item" href="forgot-password.html">Review Kostumer</a>
+                        <a class="collapse-item" href="forgot-password.html">Transaksi Customer</a>
+                        <a class="collapse-item" href="forgot-password.html">Review Customer</a>
                         <a class="collapse-item" href="forgot-password.html">Verifikasi Peminjaman Dana</a>
 
                     </div>

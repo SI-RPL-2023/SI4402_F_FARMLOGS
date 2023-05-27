@@ -77,11 +77,14 @@ Route::get('/admin/totalhasilpanen', [AdminController::class, 'totalhasilpanen']
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
 Route::get('/admin/gudang', [AdminController::class, 'gudang'])->name('gudang');
+Route::get('/admin/transaksi', [AdminController::class, 'transaksi'])->name('transaksi');
 Route::get('/admin/hasiltani', [AdminController::class, 'hasiltani'])->name('hasiltani');
 Route::get('/admin/dana', [AdminController::class, 'dana'])->name('dana');
 Route::get('/Admin/responseadmin', [ResponseAdminController::class, 'viewadmin'])->middleware('roles:1');
 Route::get('/admin/acchasiltani/{id}', [AdminController::class, 'acchasiltani'])->name('acchasiltani');
 Route::put('/admin/acchasiltani/{id}', [AdminController::class, 'confirm'])->name('confirm');
+Route::get('/admin/acctransaksi/{id}', [AdminController::class, 'acctransaksi'])->name('acctransaksi');
+Route::put('/admin/acctransaksi/{id}', [AdminController::class, 'confirmm'])->name('confirmm');
 
 
 
