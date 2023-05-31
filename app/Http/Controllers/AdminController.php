@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\HasilPanen;
+use App\Models\Peminjaman;
 use App\Models\CheckOut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -70,5 +71,20 @@ class AdminController extends Controller
         $konfirmasitransaksi = CheckOut::find($id);
         $konfirmasitransaksi->update($requestt->except('_token'));
         return redirect('/admin/transaksi');
+    }
+    public function responseadmin()
+    {
+        $response = Peminjaman::where('status', 'Menunggu Konfirmasi')->get();
+        return view('admin.responseadmin', compact(['response']));
+    }
+    public function accresponse($id)
+    {
+        $list = Peminjaman::find($id);
+        return view('admin.accresponse' , compact(['list']));
+    }
+    public function confirmmm(Request $requesttt, $id){
+        $konfirmasiadmin = Peminjaman::find($id);
+        $konfirmasiadmin->update($requesttt->except('_token'));
+        return redirect('/admin/responseadmin');
     }
 }
