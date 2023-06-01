@@ -84,8 +84,9 @@
                         <a class="collapse-item" href="/admin/gudang">Gudang</a>
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
                         <a class="collapse-item" href="/admin/transaksi">Transaksi Customer</a>
-                        <a class="collapse-item" href="forgot-password.html">Review Customer</a>
-                        <a class="collapse-item" href="forgot-password.html">Verifikasi Peminjaman Dana</a>
+                        <a class="collapse-item" href="#">Review Customer</a>
+                        <a class="collapse-item" href="/admin/dana">Verifikasi Peminjaman Dana</a>
+                        <a class="collapse-item" href="/admin/responseadmin">Peminjaman Dana</a>
 
                     </div>
                 </div>
@@ -210,8 +211,8 @@
                     <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Hasil Tani</h1>
-                    <p class="mb-4">Hasil Tani dari para petani</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Peminjaman Dana</h1>
+                    <p class="mb-4">Berikut adalah para petani yang mengajukan peminjaman dana</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -220,33 +221,47 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                <thead>
                                         <tr>
+                                            <th>Foto Ktp</th>
                                             <th>Nama Petani</th>
+                                            <th>Alamat</th>
                                             <th>Dana yang di inginkan</th>
                                             <th>Tujuan</th>
-                                            <th>Foto Lahan Tani</th>
+                                            <th>Cicilan</th>    
+                                            
+                                            <th>Jatuh Tempo</th>  
+                                            <th>Status</th>  
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                     
+                                        @foreach ($dana as $d)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><img src="" alt="" width: 100px; +-height: 100px;></td>
+                                            <td><img src="{{ asset('storage/Data/' . $d->ktp) }}" alt="" width: 100px; +-height: 100px;></td>
+                                            <td>{{$d->petani}}</td>
+                                            <td>{{$d->alamat}}</td>
+                                            <td>{{$d->dana}}</td>
+                                            <td>{{$d->tujuan}}</td>
+                                            <td>{{$d->cicilan}}</td>
+                                            
+                                            <td>{{$d->jatuhtempo}}</td>
+                                            <td>{{$d->status}}</td>
                                                 <td>
-                                                 <button type ="submit"  class="btn btn-success btn-edit">Terima</button>
+                                                
+                                                <a href="/admin/verifikasidana/{{$d->id}}">
+                                                    <button type ="submit"  class="btn btn-success btn-edit">Verifikasi</button>
+                                                    </a>
                                                  <br><br>
-                                                    <form action=""  method="post">
+                                                 <form action=""  method="post">
                                                     @csrf
                                                     @method('delete')
                                                         <button type ="submit"  class="btn btn-danger btn-edit">Tolak</button>
                                                     </form>
                                                 </td>
-                                                
+                                             
                                         </tr>
+                                        @endforeach  
                                         
                                     
                                         
