@@ -69,6 +69,7 @@ Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')-
 Route::get('/petani/peminjaman', [PetaniController::class, 'peminjaman'])->name('peminjaman');
 Route::post('/petani/peminjaman', [PetaniController::class, 'peminjamandana'])->name('peminjamandana');
 Route::get('/petani/cicilan', [PetaniController::class, 'cicilan'])->name('cicilan');
+Route::put('/petani/bayarcicilan', [PetaniController::class, 'bayarcicilan'])->name('bayarcicilan');
 
 // Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
@@ -91,4 +92,5 @@ Route::get('/admin/accresponse/{id}', [AdminController::class, 'accresponse'])->
 Route::put('/admin/accresponse/{id}', [AdminController::class, 'confirmmm'])->name('confirmmm');
 Route::get('/admin/verifikasidana/{id}', [AdminController::class, 'verifikasidana'])->name('verifikasidana');
 Route::put('/admin/verifikasidana/{id}', [AdminController::class, 'confirm2'])->name('confirm2');
+Route::get('/admin/verifikasidana/{id}', [AdminController::class, 'verifikasidana'])->name('verifikasidana');
 

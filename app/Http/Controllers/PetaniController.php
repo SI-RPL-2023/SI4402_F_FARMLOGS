@@ -72,5 +72,12 @@ class PetaniController extends Controller
         
     }
 
+    public function bayarcicilan(Request $request){
+        $id = $request->input('id');
+        DB::table('peminjaman')->where('id', $id)->update(['status' => 'Lunas']);
+
+        return redirect('/petani/cicilan');
+
+    }
 }
 

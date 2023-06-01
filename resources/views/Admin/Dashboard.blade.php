@@ -291,9 +291,9 @@
                                         <tr>
                                             <th>Nama User</th>
                                             <th>Email</th>
-                                            <th>lahir</th>
-                                            <th>Nomor Hp</th>
                                             <th>Tanggal Lahir</th>
+                                            <th>Nomor Hp</th>
+                                            <th>Daerah</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -326,9 +326,9 @@
                                         <tr>
                                             <th>Nama User</th>
                                             <th>Email</th>
-                                            <th>Lahir</th>
-                                            <th>Nomor Hp</th>
                                             <th>Tanggal Lahir</th>
+                                            <th>Nomor Hp</th>
+                                            <th>Daerah</th>
                                         </tr>
                                     </thead>
                                     <tbody>
