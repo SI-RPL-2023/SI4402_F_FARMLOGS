@@ -232,7 +232,7 @@
                     <label for="floatingInput">Status Pesanan</label>
                     <select class="form-select form-control " aria-label="Default select example" name="status">
                         <option value="Menunggu Validasi">Menunggu Validasi</option>
-                        <option value="Tervalidasi">Tervalidasi</option>
+                        <option value="Terkonfirmasi">Terkonfirmasi</option>
                     </select>
                 </div>
                 <br>
