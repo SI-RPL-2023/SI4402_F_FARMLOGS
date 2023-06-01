@@ -72,7 +72,6 @@
                                 <th>Jatuh Tempo</th>
                                 <th>Status</th>
                                 <th>Action</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -84,8 +83,15 @@
                                 <td>{{$x->jatuhtempo}}</td>
                                 <td>{{$x->status}}</td>
                                     <td>
-                                    <button type ="submit"  class="btn btn-success btn-edit">Bayar</button>                                    
-                                    </td>                                    
+                                    @if ($x->status != 'Lunas')
+                                    <form action="{{ route('bayarcicilan') }}" method="POST">
+                                        @method('put') 
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $x->id }}">
+                                        <button type="submit">Bayar</button>
+                                    </form>
+                                    </td>
+                                    @endif                                    
                             </tr>
                         @endforeach
                         
