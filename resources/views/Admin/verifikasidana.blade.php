@@ -210,8 +210,8 @@
                     <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Hasil Tani</h1>
-                    <p class="mb-4">Hasil Tani dari para petani</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Verifikasi Data</h1>
+                    <p class="mb-4">Verifikasi data yang dikirim oleh para petani</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -227,30 +227,12 @@
                 @method('put') 
                 @csrf
                 
-                    <img class="mb-4" src="../Image/foowd.png" alt="" width="100" height="">
               
-            
                 <div class="form-floating">
-                    <label for="floatingInput">Nama Petani</label>
-                    <input value = "{{$list -> petani}}"type="text " class="form-control " id="floatingInput" placeholder="" name="petani" readonly>
-                </div>
-                <div class="form-floating">
-                    <label for="floatingInput">Dana </label>
-                    <input value = "{{$list -> dana}}"type="text " class="form-control " id="floatingInput" placeholder="" name="dana" readonly>
-                </div>
-                <div class="form-floating">
-                    <label for="floatingInput">Cicilan</label>
-                    <input value = "{{$list -> cicilan}}"type="text " class="form-control " id="floatingInput" placeholder="" name="cicilan" readonly>
-                </div>
-                <div class="form-floating">
-                    <label for="floatingInput">Jatuh Tempo</label>
-                    <input value = "{{$list -> jatuhtempo}}"type="text " class="form-control " id="floatingInput" placeholder="" name="jatuhtempo" readonly>
-                </div>
-                <div class="form-floating">
-                    <label for="floatingInput">Status</label>
+                    <label for="floatingInput">Status Pesanan</label>
                     <select class="form-select form-control " aria-label="Default select example" name="status">
-                        <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
-                        <option value="Terkonfirmasi">Terkonfirmasi</option>
+                        <option value="Menunggu Validasi">Menunggu Validasi</option>
+                        <option value="Tervalidasi">Tervalidasi</option>
                     </select>
                 </div>
                 <br>

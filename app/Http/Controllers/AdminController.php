@@ -16,12 +16,12 @@ class AdminController extends Controller
 {
     public function dashboardadmin()
     {
-        // $count =  HasilPanen::count();
-        // $tr =  Transactions::count();
-        // $user = User::count();
-        // $transaksi = Transactions::sum('harga');
-        // $list = User::all();
-        return view('admin.dashboard');
+        $co =  CheckOut::count();
+        $user = User::count();
+        $users = User::where('id_roles', '2')->get();
+        $petani = User::where('id_roles', '3')->get();
+        $transaksi = CheckOut::where('status', 'dikirim')->sum('harga');;
+        return view('admin.dashboard', compact(['co'],['user'],['transaksi'],['users'],['petani']));
     }
     public function profileadmin()
     {
@@ -38,7 +38,9 @@ class AdminController extends Controller
 
     public function dana()
     {
-        return view('admin.dana');
+        $dana = Peminjaman::where('status','Menunggu Validasi')->get();
+        
+        return view('admin.dana', compact(['dana']));
     }
     public function hasiltani()
     {
@@ -74,7 +76,7 @@ class AdminController extends Controller
     }
     public function responseadmin()
     {
-        $response = Peminjaman::where('status', 'Menunggu Konfirmasi')->get();
+        $response = Peminjaman::where('status', 'Tervalidasi')->get();
         return view('admin.responseadmin', compact(['response']));
     }
     public function accresponse($id)
@@ -86,5 +88,16 @@ class AdminController extends Controller
         $konfirmasiadmin = Peminjaman::find($id);
         $konfirmasiadmin->update($requesttt->except('_token'));
         return redirect('/admin/responseadmin');
+    }
+    public function verifikasidana($id){
+        $dana = Peminjaman::find($id);
+        return view('admin.verifikasidana', compact(['dana']));
+    }
+
+
+    public function confirm2(Request $request, $id){
+        $konfirmasidana = Peminjaman::find($id);
+        $konfirmasidana->update($request->except('_token'));
+        return redirect('/admin/dana');
     }
 }

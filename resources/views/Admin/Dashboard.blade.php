@@ -86,6 +86,7 @@
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
                         <a class="collapse-item" href="/admin/transaksi">Transaksi Customer</a>
                         <a class="collapse-item" href="#">Review Customer</a>
+                        <a class="collapse-item" href="/admin/dana">Verifikasi Peminjaman Dana</a>
                         <a class="collapse-item" href="/admin/responseadmin">Peminjaman Dana</a>
                         
                     </div>
@@ -228,7 +229,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total Penjualan</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$co}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -245,7 +246,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Hasil Penjualan </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp 0</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp {{$transaksi}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -262,7 +263,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 User</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$user}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -271,11 +272,82 @@
                                 </div>
                             </div>
                         </div>
+                        
 
 
                     
             </div>
             <!-- End of Main Content -->
+            <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                Nama User
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama User</th>
+                                            <th>Email</th>
+                                            <th>lahir</th>
+                                            <th>Nomor Hp</th>
+                                            <th>Tanggal Lahir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($users as $u)
+                                        <tr>
+                                            <td>{{$u->nama }}</td>
+                                            <td>{{$u->email}}</td>
+                                            <td>{{$u->lahir}}</td>
+                                            <td>{{$u->nomor}}</td>
+                                            <td>{{$u->daerah}}</td>
+                                            @csrf
+                                        </tr>
+                                        @endforeach
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                Nama Petani
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama User</th>
+                                            <th>Email</th>
+                                            <th>Lahir</th>
+                                            <th>Nomor Hp</th>
+                                            <th>Tanggal Lahir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($petani as $p)
+                                        <tr>
+                                            <td>{{$p->nama }}</td>
+                                            <td>{{$p->email}}</td>
+                                            <td>{{$p->lahir}}</td>
+                                            <td>{{$p->nomor}}</td>
+                                            <td>{{$p->daerah}}</td>
+                                            @csrf
+                                        </tr>
+                                        @endforeach
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
 
             
@@ -285,7 +357,7 @@
         <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
+    
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

@@ -87,5 +87,6 @@ Route::get('/admin/acctransaksi/{id}', [AdminController::class, 'acctransaksi'])
 Route::put('/admin/acctransaksi/{id}', [AdminController::class, 'confirmm'])->name('confirmm');
 Route::get('/admin/accresponse/{id}', [AdminController::class, 'accresponse'])->name('accresponse');
 Route::put('/admin/accresponse/{id}', [AdminController::class, 'confirmmm'])->name('confirmmm');
-
+Route::get('/admin/verifikasidana/{id}', [AdminController::class, 'verifikasidana'])->name('verifikasidana');
+Route::put('/admin/verifikasidana/{id}', [AdminController::class, 'confirm2'])->name('confirm2');
 
