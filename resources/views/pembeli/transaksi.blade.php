@@ -69,6 +69,7 @@
                                             <th>Nama Produk</th>
                                             <th>Harga</th>
                                             <th>Status Pesanan</th>
+                                            <th>Review</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,6 +79,51 @@
                                             <td>{{$l->name}}</td>
                                             <td>{{$l->harga}}</td>
                                             <td>{{$l->status}}</td>
+                                            <td>
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Review Produk Ini!
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <form action="{{ url('/add-rating') }}" method="POST">
+
+      @csrf
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body"> 
+                                            
+  <div class="rating-css">
+    <div class="star-icon">
+        <input type="radio" value="1" name="product_rating" checked id="rating1">
+        <label for="rating1" class="fa fa-star">*</label>
+        <input type="radio" value="2" name="product_rating" id="rating2">
+        <label for="rating2" class="fa fa-star">*</label>
+        <input type="radio" value="3" name="product_rating" id="rating3">
+        <label for="rating3" class="fa fa-star">*</label>
+        <input type="radio" value="4" name="product_rating" id="rating4">
+        <label for="rating4" class="fa fa-star">*</label>
+        <input type="radio" value="5" name="product_rating" id="rating5">
+        <label for="rating5" class="fa fa-star">*</label>
+    </div>
+  </div>
+
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div> 
+</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

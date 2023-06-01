@@ -7,6 +7,7 @@ use App\Http\Controllers\PetaniController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ArtikelPetaniController;
 use App\Http\Controllers\ResponseAdminController;
+use App\Http\Controllers\RatingController;
 
 
 /*
@@ -49,8 +50,9 @@ Route::get('/checkout/{id}', [UserController::class, 'checkoutpembeli'])->name('
 Route::post('/checkout', [UserController::class, 'inputpanen'])->name('inputpanen');
 
 Route::get('/pembeli/transaksi/{id}', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
-
 Route::get('/pembeli/transaksi', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
+
+Route::post('add-rating',[RatingController::class, 'add'])->name('add');
 
 
 
