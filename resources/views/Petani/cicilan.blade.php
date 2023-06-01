@@ -83,7 +83,7 @@
                                 <td>{{$x->jatuhtempo}}</td>
                                 <td>{{$x->status}}</td>
                                     <td>
-                                    @if ($x->status != 'Lunas')
+                                    @if ($x->status == 'Terkonfirmasi')
                                     <form action="{{ route('bayarcicilan') }}" method="POST">
                                         @method('put') 
                                         @csrf

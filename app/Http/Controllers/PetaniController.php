@@ -64,7 +64,7 @@ class PetaniController extends Controller
             'cicilan' => $request->cicilan,
             'lahan' => $request->lahan,
             'jatuhtempo' => '2024-12-31',
-            'status' => "Menunggu Konfirmasi"
+            'status' => "Menunggu Validasi"
         ]);
         if($cekinput){
             return redirect('/petani/peminjaman');
