@@ -97,7 +97,7 @@
             <div class="col-12">
               <label for="username" class="form-label">Name</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username" placeholder="Name" required name="nama" value ="{{ Auth::user()->nama }}">
+                <input type="text" class="form-control" id="username" placeholder="Name" required name="nama" value ="{{ Auth::user()->nama }}" disabled>
               <div class="invalid-feedback">
                   Your username is required.
                 </div>
@@ -106,7 +106,7 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com" required name = "email"  value ="{{ Auth::user()->email }}">
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" required name = "email"  value ="{{ Auth::user()->email }}" disabled>
               <div class="invalid-feedback">
                 Please enter a valid email address.
               </div>
@@ -122,7 +122,7 @@
 
             <div class="col-12">
               <label for="address2" class="form-label">No hp </label>
-              <input type="text" class="form-control" id="address2" placeholder="" required name = "nomor" value ="{{ Auth::user()->nomor}}">
+              <input type="text" class="form-control" id="address2" placeholder="" required name = "nomor" value ="{{ Auth::user()->nomor}}" disabled>
             </div>
 
           </div>
