@@ -22,8 +22,7 @@
 
                 <a class="navbar-brand" href="/">
 
-                    <!-- <img src="../Image/LOGO RPL.png" href="/home" width="80" height=""> -->
-
+                    
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" href="home" width="80" height="">
 
 

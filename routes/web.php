@@ -70,6 +70,7 @@ Route::get('/petani/peminjaman', [PetaniController::class, 'peminjaman'])->name(
 Route::post('/petani/peminjaman', [PetaniController::class, 'peminjamandana'])->name('peminjamandana');
 Route::get('/petani/cicilan', [PetaniController::class, 'cicilan'])->name('cicilan');
 Route::put('/petani/bayarcicilan', [PetaniController::class, 'bayarcicilan'])->name('bayarcicilan');
+Route::get('/petani/invoice/{id}', [PetaniController::class, 'invoice'])->name('invoice');
 
 // Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');

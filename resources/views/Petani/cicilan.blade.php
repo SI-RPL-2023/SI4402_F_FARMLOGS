@@ -88,9 +88,50 @@
                                         @method('put') 
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $x->id }}">
-                                        <button type="submit">Bayar</button>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                          Bayar
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Pembayaran</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p>Total Tagihan</p>
+                                                <p>Rp. {{$x->dana}}</p>
+                                                <p>Pilih Metode Pembayaran :</p>
+                                                <div class="my-3">
+                                                  <div class="form-check">
+                                                      <input id="Card" name="pembayaran"value="Card" type="radio" class="form-check-input" checked required>
+                                                      <label class="form-check-label" for="Card">Credit Card</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                      <input id="Bank transfer" name="pembayaran" type="radio" value = "Bank transfer" class="form-check-input" required>
+                                                      <label class="form-check-label" for="Bank transfer">Bank transfer</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                      <input id="Digital Wallet" name="pembayaran" type="radio" value="Digital Wallet" class="form-check-input" required>
+                                                      <label class="form-check-label" for="Digital Wallet">Digital Wallet</label>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="Submit" class="btn btn-primary">Konfirmasi</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                     </form>
+                                    @elseif ($x->status == 'Lunas')
+                                    <a href="/petani/invoice/{{$x -> id}}" class="btn btn-success">invoice</a>
                                     </td>
+
                                     @endif                                    
                             </tr>
                         @endforeach
