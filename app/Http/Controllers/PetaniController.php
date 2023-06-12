@@ -30,8 +30,8 @@ class PetaniController extends Controller
     }
     public function cicilan()
     {
-        $list = Peminjaman::all();
-        return view('petani.cicilan', compact(['list']));
+        $list = Peminjaman::where('petani', Auth::user()->nama)->get();
+        return view('petani.cicilan', compact('list'));
     }
     public function cekinput(Request $request){
         $ekstensi = $request->file('image')->clientExtension();
@@ -63,7 +63,7 @@ class PetaniController extends Controller
             'tujuan' => $request->tujuan,
             'cicilan' => $request->cicilan,
             'lahan' => $request->lahan,
-            'jatuhtempo' => '2024-12-31',
+            'jatuhtempo' => date('Y-m-d', strtotime($request->created_at . ' +'.$request->cicilan.' months')),
             'status' => "Menunggu Validasi"
         ]);
         if($cekinput){
@@ -79,5 +79,12 @@ class PetaniController extends Controller
         return redirect('/petani/cicilan');
 
     }
+
+    public function invoice($id)
+    {
+        $invoice = Peminjaman::find($id);
+        return view('petani.invoice', compact(['invoice']));
+    }
+    
 }
 

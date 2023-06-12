@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Petani</label>
-                            <input id="petani" name="petani" type="text" class="form-control" placeholder="">
+                            <input id="petani" name="petani" type="text" class="form-control" placeholder="" value="{{ Auth::User()->nama}}" readonly>
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
@@ -92,15 +92,15 @@
                         </div>                        
                         <div class="col-sm-12 mb-3"><p>Durasi Cicilan</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="3bulan" value="3bulan">
+                                <input class="form-check-input" type="radio" name="cicilan" id="3bulan" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3 Bulan</label>                                
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="6bulan" value="6bulan">
+                                <input class="form-check-input" type="radio" name="cicilan" id="6bulan" value="6">
                                 <label class="form-check-label" for="inlineRadio2">6 Bulan</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="12bulan" value="12bulan">
+                                <input class="form-check-input" type="radio" name="cicilan" id="12bulan" value="12">
                                 <label class="form-check-label" for="inlineRadio2">12 Bulan</label>                                
                             </div>
                         </div>                                    
