@@ -253,11 +253,6 @@
                                                     <button type ="submit"  class="btn btn-success btn-edit">Verifikasi</button>
                                                     </a>
                                                  <br><br>
-                                                 <form action=""  method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                        <button type ="submit"  class="btn btn-danger btn-edit">Tolak</button>
-                                                    </form>
                                                 </td>
                                              
                                         </tr>
