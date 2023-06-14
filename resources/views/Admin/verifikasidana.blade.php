@@ -224,6 +224,7 @@
                     <select class="form-select form-control " aria-label="Default select example" name="status">
                         <option value="Menunggu Validasi">Menunggu Validasi</option>
                         <option value="Terkonfirmasi">Terkonfirmasi</option>
+                        <option value="Ditolak">Ditolak</option>
                     </select>
                 </div>
                 <br>
