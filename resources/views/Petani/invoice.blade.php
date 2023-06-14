@@ -25,6 +25,8 @@
       border: 1px solid #ccc;
       padding: 10px;
     }
+
+   
   </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
@@ -83,6 +85,9 @@
     </table>
     <br>
     <button id="print-button" class="btn btn-primary d-print-none">Print Invoice</button>
+    <a href="/petani/cicilan">
+        <button  class="btn btn-primary d-print-none">Kembali</button>
+    </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script>
         document.getElementById('print-button').addEventListener('click', function() {

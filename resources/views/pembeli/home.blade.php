@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 <body>
-    <header>
+  <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/pembeli/home">
-                    <img src="../Image/LOGO RPL.png" width="40" height="">
+                    <img src="../Image/LOGO RPL.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,19 +23,10 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#tentang">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="/pembeli/menu">Hasil Panen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
                     </li>
                     <li class="nav-item ml-2">
                         <a class="nav-link active" href="{{ url('/artikel') }}">Artikel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
                     </li>
                     </ul>
                 </div>
@@ -47,11 +38,6 @@
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
               </div>
-              </div>
-                </span>
-                </div>
-                </div>
-            </div>
             </div>
         </nav>
     </header>

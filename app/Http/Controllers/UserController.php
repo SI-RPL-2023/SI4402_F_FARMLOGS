@@ -112,7 +112,7 @@ class UserController extends Controller
     }
     public function transaksipembeli()
     {
-        $list = CheckOut::all();
+        $list = CheckOut::where('email', Auth::user()->email)->get();
         return view('pembeli.transaksi', compact('list'));
     }
 

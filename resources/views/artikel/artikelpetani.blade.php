@@ -53,11 +53,8 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
-
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
-                    </li> -->
                     </ul>
+                </div>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>

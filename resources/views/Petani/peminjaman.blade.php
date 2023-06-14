@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Farmlogs</title>
     <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
     <link rel="stylesheet" href="../Asset/home.css">
@@ -36,21 +37,13 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
-
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
-                    </li> -->
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Jual Hasil Panen</a></li>
-                  <li><a class="dropdown-item" href="/petani/peminjaman">Peminjaman Dana</a></li>
-                  <li><a class="dropdown-item" href="/petani/cicilan">Pembayaran Cicilan</a></li>
-                  <li><a class="dropdown-item" href="/">Log out</a></li>
+                    <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
               </div>
@@ -80,7 +73,7 @@
                         <div class="col-sm-12 mb-3">
                             <div class="before" id="before">
                                 <label class="form-label">Foto Data Diri (KTP)</label>
-                                <input type="file" onchange="loadFile(this)" id="ktp" name="ktp" class="form-control">                                
+                                <input type="file" onchange="loadFile(this)" id="ktp" name="ktp" class="form-control" required> 
                             </div>
                         </div>
                         <div class="col-sm-12 mb-3">
@@ -88,39 +81,43 @@
                             <input id="petani" name="petani" type="text" class="form-control" placeholder="" value="{{ Auth::User()->nama}}" readonly>
                         </div>
                         <div class="col-sm-12 mb-3">
-                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                            <input id="alamat" name="alamat" type="text" class="form-control" placeholder="">
+                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input id="email" name="email" type="text" class="form-control" placeholder="" value="{{ Auth::User()->email}}" readonly>
+                        </div>
                         <div class="col-sm-12 mb-3">
+                            <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
+                            <input id="alamat" name="alamat" type="text" class="form-control" placeholder="" required>
+                        </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nominal Dana</label>
-                            <input id="dana" name="dana" type="text" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam">
+                            <input id="dana" name="dana" type="number" class="form-control" placeholder="Masukkan nominal dana yang ingin dipinjam" required>
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Tujuan Peminjaman</label>
-                            <input id="tujuan" name="tujuan" type="text" class="form-control" placeholder="Contoh : Untuk membeli bibit cabai">
+                            <input id="tujuan" name="tujuan" type="text" class="form-control" placeholder="Contoh : Untuk membeli bibit cabai" required>
                         </div>                        
-                        <div class="col-sm-12 mb-3"><p>Durasi Cicilan</p>
+                        <div class="col-sm-12 mb-3" ><p>Durasi Cicilan</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="3bulan" value="3">
+                                <input class="form-check-input" type="radio" name="cicilan" id="3bulan" value="3" required>
                                 <label class="form-check-label" for="inlineRadio2">3 Bulan</label>                                
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="6bulan" value="6">
+                                <input class="form-check-input" type="radio" name="cicilan" id="6bulan" value="6" required>
                                 <label class="form-check-label" for="inlineRadio2">6 Bulan</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cicilan" id="12bulan" value="12">
+                                <input class="form-check-input" type="radio" name="cicilan" id="12bulan" value="12" required>
                                 <label class="form-check-label" for="inlineRadio2">12 Bulan</label>                                
                             </div>
                         </div>                                    
                         <div class="col-sm-12 mb-3">
                             <div class="before" id="before">
                                 <label class="form-label">Foto Lahan Tani</label>
-                                <input type="file" onchange="loadFile(this)" id="lahan" name="lahan" class="form-control">
+                                <input type="file" onchange="loadFile(this)" id="lahan" name="lahan" class="form-control" required>
                             </div>
                         </div>   
                         <div class="col-sm-12 center text-center">
-                            <button type="submit" class="btn btn-reg mx-2 btn-success">Konfirmasi</button>
+                            <button type="submit" class="btn btn-reg mx-2 btn-success" onclick="validateForm()">Konfirmasi</button>
                         </div>
                 </form>
             </div>
@@ -172,4 +169,29 @@
       
       <div class="b-example-divider"></div>
 </body>
+<script>
+    function validateForm() {
+        
+        var lahanInput = document.getElementById('lahan');
+
+        
+        if (lahanInput.value === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Form tidak lengkap',
+                text: 'Mohon isi semua field yang diperlukan'
+            });
+        } else {
+            showSuccessNotification();
+        }
+    }
+
+    function showSuccessNotification() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Konfirmasi berhasil',
+            text: 'Notifikasi sukses'
+        });
+    }
+</script>
 </html>

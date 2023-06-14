@@ -36,31 +36,31 @@
         @csrf
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="nama" name="nama">
+                <input type="text" class="form-control" id="nama" name="nama" required>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nomor Handphone</label>
-                <input type="number" class="form-control" id="nomor" name="nomor">
+                <input type="number" class="form-control" id="nomor" name="nomor" required>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Tanggal Lahir</label>
-                <input type="date" class="form-control" id="lahir" name="lahir">
+                <input type="date" class="form-control" id="lahir" name="lahir" required>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Daerah</label>
-                <input type="text" class="form-control" id="daerah" name="daerah">
+                <input type="text" class="form-control" id="daerah" name="daerah" required>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Konfirmasi Password</label>
-                <input type="password" class="form-control" id="password" name="password_confirmation">
+                <input type="password" class="form-control" id="password" name="password_confirmation" required>
             </div>
             <button type="sumbit" class="btn btn-success me-2">Daftar</button>
             <br><br>
