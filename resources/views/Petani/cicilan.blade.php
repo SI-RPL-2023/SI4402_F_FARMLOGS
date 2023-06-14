@@ -36,20 +36,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
-
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
-                    </li> -->
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Jual Hasil Panen</a></li>
-                  <li><a class="dropdown-item" href="/petani/peminjaman">Peminjaman Dana</a></li>
-                  <li><a class="dropdown-item" href="/petani/cicilan">Pembayaran Cicilan</a></li>
                   <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
@@ -90,7 +82,7 @@
                             <tr>
                                 <td>{{$x->petani}}</td>
                                 <td>{{$x->created_at}}</td>
-                                <td>{{$x->dana}}</td>
+                                <td>Rp {{ number_format($x['dana'], 0, ',', '.') }}</td>
                                 <td>{{$x->jatuhtempo}}</td>
                                 <td>{{$x->status}}</td>
                                     <td>
@@ -114,7 +106,7 @@
                                               </div>
                                               <div class="modal-body">
                                                 <p>Total Tagihan</p>
-                                                <p>Rp. {{$x->dana}}</p>
+                                                <p>Rp {{ number_format($x['dana'], 0, ',', '.') }}</p>
                                                 <p>Pilih Metode Pembayaran :</p>
                                                 <div class="my-3">
                                                   <div class="form-check">

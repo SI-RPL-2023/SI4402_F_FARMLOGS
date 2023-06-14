@@ -70,15 +70,17 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item     ">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false"
                     aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+
                         <h6 class="collapse-header">Pages:</h6>
+
 
                         <a class="collapse-item" href="/admin/gudang">Gudang</a>
                         <a class="collapse-item" href="/admin/hasiltani">Konfirmasi Hasil Tani</a>
@@ -86,8 +88,14 @@
                         <a class="collapse-item" href="#">Review Customer</a>
                         <a class="collapse-item" href="/admin/dana">Verifikasi Peminjaman Dana</a>
                         <a class="collapse-item" href="/admin/responseadmin">Peminjaman Dana</a>
+                        
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/reporting">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Reporting</span></a>
             </li>
         
 
@@ -230,7 +238,7 @@
                 </div>
                 <div class="form-floating">
                     <label for="floatingInput">Harga </label>
-                    <input value = "{{$list -> harga}}"type="text " class="form-control " id="floatingInput" placeholder="" name="harga" readonly>
+                    <input value = "{{ number_format($list->harga, 0, ',', '.') }}"type="text " class="form-control " id="floatingInput" placeholder="" name="harga" readonly>
                 </div>
                 <div class="form-floating">
                     <label for="floatingInput">Banyak hasil</label>

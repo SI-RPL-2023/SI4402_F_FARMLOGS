@@ -94,6 +94,6 @@ Route::put('/admin/accresponse/{id}', [AdminController::class, 'confirmmm'])->na
 Route::get('/admin/verifikasidana/{id}', [AdminController::class, 'verifikasidana'])->name('verifikasidana');
 Route::put('/admin/verifikasidana/{id}', [AdminController::class, 'confirm2'])->name('confirm2');
 Route::get('/admin/verifikasidana/{id}', [AdminController::class, 'verifikasidana'])->name('verifikasidana');
-Route::post('/admin/tolak/',  [AdminController::class, 'tolak'])->name('tolak');
-
-
+Route::get('/admin/reporting', [AdminController::class, 'reporting'])->name('reporting');
+Route::get('/admin/reportingpenjualan', [AdminController::class, 'reportingpenjualan'])->name('reportingpenjualan');
+Route::get('/admin/reportingpeminjaman', [AdminController::class, 'reportingpeminjaman'])->name('reportingpeminjaman');

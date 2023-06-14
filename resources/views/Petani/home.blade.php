@@ -35,20 +35,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
-
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
-                    </li> -->
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Jual Hasil Panen</a></li>
-                  <li><a class="dropdown-item" href="/petani/peminjaman">Peminjaman Dana</a></li>
-                  <li><a class="dropdown-item" href="/petani/cicilan">Pembayaran Cicilan</a></li>
                   <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
