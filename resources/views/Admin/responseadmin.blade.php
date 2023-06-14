@@ -227,6 +227,7 @@
                                             <th>Cicilan</th>
                                             <th>Jatuh Tempo</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -236,19 +237,28 @@
                                             <td>Rp {{$r->dana }}</td>
                                             <td>{{$r->cicilan }}</td>
                                             <td>{{$r->jatuhtempo }}</td>
-                                            <td>{{$r->status }}</td>
-                                                <td>
-                                                    <a href="/admin/accresponse/{{$r->id}}">
-                                                    <button type ="submit"  class="btn btn-success btn-edit">Konfirmasi</button>
-                                                    </a>
-                                                 <br><br>
-                                                    <form action=""  method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                        <button type ="submit"  class="btn btn-danger btn-edit">Hapus</button>
-                                                    </form>
-                                                </td>
-                                                
+                                            <td>{{$r->status}}</td>
+                                            <td>
+                                            <a href="/admin/accresponse/{{$r->id}}">
+                                                <button type="submit" class="btn btn-success btn-edit">Konfirmasi</button>
+                                            </a>
+                                            <br><br>
+                                            <form id="delete-form-{{$r->id}}" action="{{ route('delete.responseadmin', ['id' => $r->id]) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="button" class="btn btn-danger btn-edit" onclick="confirmDelete({{$r->id}})">Tolak</button>
+                                            </form>
+                                        </td>
+
+                                        <script>
+                                            function confirmDelete(responseId) {
+                                                if (confirm('Apakah Anda yakin?')) {
+                                                    document.getElementById('delete-form-' + responseId).submit();
+                                                }
+                                            }
+                                        </script>
+
+
                                         </tr>
                                         @endforeach
                                     

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\HasilPanen;
 use App\Models\Peminjaman;
 use App\Models\CheckOut;
+use App\Models\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -87,4 +88,15 @@ class AdminController extends Controller
         $konfirmasiadmin->update($requesttt->except('_token'));
         return redirect('/admin/responseadmin');
     }
+    public function deleteResponse($id)
+    {
+        // Lakukan logika penghapusan data berdasarkan $id
+        Response::findOrFail($id)->delete();
+
+        // Setelah penghapusan, tambahkan kode notifikasi
+        session()->flash('success', 'Permintaan ditolak');
+        return redirect()->back();
+    }
+
+
 }
