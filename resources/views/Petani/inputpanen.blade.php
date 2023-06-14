@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 
+<body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -23,34 +24,42 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link active" href="inputpanen">Jual Hasil Panen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
+                        <a class="nav-link active" href="peminjaman">Pinjam Dana</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
+                        <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
-                    <li class="nav-item">
+
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
-                    </li>
+                    </li> -->
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
-                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                  <li><a class="dropdown-item" href="/petani/inputpanen">Jual Hasil Panen</a></li>
+                  <li><a class="dropdown-item" href="/petani/peminjaman">Peminjaman Dana</a></li>
+                  <li><a class="dropdown-item" href="/petani/cicilan">Pembayaran Cicilan</a></li>
+                  <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
+              </div>
+                </span>
+                </div>
+                </div>
             </div>
             </div>
         </nav>
     </header>
-
-<body>
 
     <div class="w-10/12 ml-3 bg-white border border-gray-200 rounded-2xl shadow-md max-h-150vh overflow-auto p-4">
         <div class="row">
