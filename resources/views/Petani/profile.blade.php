@@ -8,9 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <title>Farmlogs</title>
-
-    <link rel="icon" href="Image/LOGO RPL.png" type="image/icon type">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
 
     <link rel="stylesheet" href="../Asset/home.css">
@@ -19,60 +17,39 @@
 <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-
-                <a class="navbar-brand" href="/">
-
-                    <!-- <img src="../Image/LOGO RPL.png" href="/home" width="80" height=""> -->
-
-                    <img src="../Image/LOGO_RPL_-removebg-preview.png" href="home" width="80" height="">
-
-
+                <a class="navbar-brand" href="/petani/home">
+                    <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" ></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link active" href="inputpanen">Jual Hasil Panen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
+                        <a class="nav-link active" href="peminjaman">Pinjam Dana</a>
                     </li>
                     <li class="nav-item ml-2">
                         <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
+                        <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
                     </ul>
-
-                <div class = "loginbtn" >
-                <span>
-                    <a href="/petani/home">
-                        <button class="btn btn-outline-success me-2"  type="submit">Home</button>
-                    </a>
-                    <a href="/logout">
-                        <button class="btn btn-outline-success me-2"  type="submit">Logout</button>
-                    </a>
-                </span> 
-
-                </div>
-
                 </div>
                 <div class="dropdown">
-                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false"></button></a>
+                <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="home">Home</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
-                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                    <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
-
+              </div>
+                </span>
+                </div>
+                </div>
             </div>
             </div>
         </nav>
@@ -85,85 +62,55 @@
         <form action="/updateprof" method="post" enctype="multipart/form-data">
             @csrf
             <div>
-
-
                 <input type="hidden" value="{{ Auth::user()->id }}" name="id">
-
-                <input type="hidden" value="" name="id">
-
-
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nama Petani</label>
                 <div class="col-sm-10">
-
-
                     <input value="{{ Auth::user()->nama }}" type="text" class="form-control" placeholder="Nama" name="nama">
-
-                    <input value="" type="text" class="form-control" placeholder="Nama" name="nama">
-
-
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">E-mail</label>
-
-
-                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Email" name="email">
-
-                    <input value="" type="text" class="form-control" placeholder="Email" name="email">
-
-
+                <div class="col-sm-10">
+                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Email" name="email" readonly>
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nomor Handphone</label>
                 <div class="col-sm-10">
-
-
                     <input value="{{ Auth::user()->nomor }}" type="number" class="form-control" placeholder="Nomor Handphone" name="nomor">
-
-                    <input value="" type="number" class="form-control" placeholder="Nomor Handphone" name="nomor">
-
-
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Tanggal Lahir</label>
                 <div class="col-sm-10">
-
-
                     <input value="{{ Auth::user()->lahir }}" type="date" class="form-control" placeholder="Tanggal Lahir" name="lahir" readonly>
-
-                    <input value="" type="date" class="form-control" placeholder="Tanggal Lahir" name="lahir" readonly>
-
-
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Daerah</label>
                 <div class="col-sm-10">
-
-
                     <input value="{{ Auth::user()->daerah }}" type="text" class="form-control" placeholder="Daerah" name="daerah">
-                    <input value="" type="text" class="form-control" placeholder="Daerah" name="daerah">
-
                 </div>
             </div>
+            <hr class="featurette-divider">
+            <p>Masukan Password Anda yang Sekarang untuk Pengecekan Autorisasi</p>
+            
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Password</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Konfirmasi Password</label>
                 <div class="col-sm-10">
-                    <input  type="password" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation">
+                    <input  type="password" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation" id = "konfirmasi" required>
                 </div>
             </div>
             <div class="form-group mt-5" style="float: right;">
-                <button type="submit" class="btn btn-edit mx-2">Update</button>
+                <button type="submit" class="btn btn-edit mx-2" onclick="validateForm()">Update</button>
             </div>
         </form>
     </div>
@@ -214,4 +161,31 @@
   
 </div>
 </body>
+<script>
+    function validateForm() {
+        
+        var lahanInput = document.getElementById('konfirmasi');
+
+        
+        if (lahanInput.value === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Form tidak lengkap',
+                text: 'Mohon isi semua field yang diperlukan'
+            });
+        } else {
+            showSuccessNotification();
+        }
+    }
+
+    function showSuccessNotification() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data diri berhasil diperbarui'
+        });
+    }
+</script>
+</script>
+
 </html>

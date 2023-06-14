@@ -7,6 +7,7 @@ use App\Http\Controllers\PetaniController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ArtikelPetaniController;
 use App\Http\Controllers\ResponseAdminController;
+use App\Http\Controllers\RatingController;
 
 
 /*
@@ -49,8 +50,9 @@ Route::get('/checkout/{id}', [UserController::class, 'checkoutpembeli'])->name('
 Route::post('/checkout', [UserController::class, 'inputpanen'])->name('inputpanen');
 
 Route::get('/pembeli/transaksi/{id}', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
-
 Route::get('/pembeli/transaksi', [UserController::class, 'transaksipembeli'])->name('transaksipembeli');
+
+Route::post('add-rating',[RatingController::class, 'add'])->name('add');
 
 
 
@@ -67,6 +69,8 @@ Route::get('/artikelpetani/{id_artikelpetani}', 'ArtikelPetaniController@show')-
 Route::get('/petani/peminjaman', [PetaniController::class, 'peminjaman'])->name('peminjaman');
 Route::post('/petani/peminjaman', [PetaniController::class, 'peminjamandana'])->name('peminjamandana');
 Route::get('/petani/cicilan', [PetaniController::class, 'cicilan'])->name('cicilan');
+Route::put('/petani/bayarcicilan', [PetaniController::class, 'bayarcicilan'])->name('bayarcicilan');
+Route::get('/petani/invoice/{id}', [PetaniController::class, 'invoice'])->name('invoice');
 
 // Admin
 Route::get('/admin/profile', [AdminController::class, 'profileadmin'])->name('profileadmin');
@@ -88,5 +92,9 @@ Route::get('/admin/acctransaksi/{id}', [AdminController::class, 'acctransaksi'])
 Route::put('/admin/acctransaksi/{id}', [AdminController::class, 'confirmm'])->name('confirmm');
 Route::get('/admin/accresponse/{id}', [AdminController::class, 'accresponse'])->name('accresponse');
 Route::put('/admin/accresponse/{id}', [AdminController::class, 'confirmmm'])->name('confirmmm');
-
-
+Route::get('/admin/verifikasidana/{id}', [AdminController::class, 'verifikasidana'])->name('verifikasidana');
+Route::put('/admin/verifikasidana/{id}', [AdminController::class, 'confirm2'])->name('confirm2');
+Route::get('/admin/verifikasidana/{id}', [AdminController::class, 'verifikasidana'])->name('verifikasidana');
+Route::get('/admin/reporting', [AdminController::class, 'reporting'])->name('reporting');
+Route::get('/admin/reportingpenjualan', [AdminController::class, 'reportingpenjualan'])->name('reportingpenjualan');
+Route::get('/admin/reportingpeminjaman', [AdminController::class, 'reportingpeminjaman'])->name('reportingpeminjaman');

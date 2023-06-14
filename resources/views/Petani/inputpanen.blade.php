@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Farmlogs</title>
     <link rel="icon" href="Image/LOGO RPL .png" type="image/icon type">
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 
+<body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -23,34 +25,34 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link active" href="inputpanen">Jual Hasil Panen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
+                        <a class="nav-link active" href="peminjaman">Pinjam Dana</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
+                        <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
-                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                    <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
+              </div>
+                </span>
+                </div>
+                </div>
             </div>
             </div>
         </nav>
     </header>
-
-<body>
 
     <div class="w-10/12 ml-3 bg-white border border-gray-200 rounded-2xl shadow-md max-h-150vh overflow-auto p-4">
         <div class="row">
@@ -73,7 +75,7 @@
                                 <label class="custom-file-upload">
                                     <i class="fa-solid fa-plus" style="color:#5B5B5B;font-size:50px;"></i>
                                     <p style="color:#373737;">Gambar Hasil Panen</p>
-                                    <input type="file" onchange="loadFile(this)" id="image" name="image" class="form-control-file">
+                                    <input type="file" onchange="loadFile(this)" id="image" name="image" class="form-control-file" required>
                                 </label>
                             </div>
                             <div class="after" id="after" style="display: none;">
@@ -84,22 +86,22 @@
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Hasil Panen</label>
-                            <input id="name" name="name" type="text" class="form-control" placeholder="Masukkan Nama Hasil Panen">
+                            <input id="name" name="name" type="text" class="form-control" placeholder="Masukkan Nama Hasil Panen" required>
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Detail Hasil Panen</label>
-                            <textarea id="detail" name="detail" type="text" class="form-control" rows="5" placeholder="Masukkan Detail Hasil Panen"></textarea>
+                            <textarea id="detail" name="detail" type="text" class="form-control" rows="5" placeholder="Masukkan Detail Hasil Panen" required></textarea>
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga Hasil Panen</label>
-                            <input id="harga" name="harga" type="text" class="form-control" placeholder="Masukkan Harga Hasil Panen (Rp)">
+                            <input id="harga" name="harga" type="text" class="form-control" placeholder="Masukkan Harga Hasil Panen (Rp)" required>
                         </div>
                         <div class="col-sm-12 mb-3">
                             <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumlah Hasil Panen (Kg)</label>
-                            <input id="hasil" name="hasil" type="text" class="form-control" placeholder="Masukkan Jumlah Hasil Panen (Kg)">
+                            <input id="hasil" name="hasil" type="text" class="form-control" placeholder="Masukkan Jumlah Hasil Panen (Kg)"required>
                         </div>
                         <div class="form-group mt-3 center text-center">
-                            <button type="submit" class="btn btn-edit mx-2">Input Hasil Panen</button>
+                            <button type="submit" class="btn btn-edit mx-2" onclick="validateForm()">Input Hasil Panen</button>
                         </div>
                 </form>
             </div>
@@ -151,4 +153,29 @@
       
       <div class="b-example-divider"></div>
 </body>
+<script>
+    function validateForm() {
+        
+        var hasilInput = document.getElementById('hasil');
+
+        
+        if (hasilInput.value === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Form tidak lengkap',
+                text: 'Mohon isi semua field yang diperlukan'
+            });
+        } else {
+            showSuccessNotification();
+        }
+    }
+
+    function showSuccessNotification() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Konfirmasi berhasil',
+            text: 'Notifikasi sukses'
+        });
+    }
+</script>
 </html>

@@ -22,4 +22,5 @@ class ArtikelController extends Controller
         return view('artikel.show', compact('artikel')); 
     }
     
+    
 }

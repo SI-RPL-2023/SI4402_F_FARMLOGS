@@ -30,8 +30,8 @@ class PetaniController extends Controller
     }
     public function cicilan()
     {
-        $list = Peminjaman::all();
-        return view('petani.cicilan', compact(['list']));
+        $list = Peminjaman::where('email', Auth::user()->email)->get();
+        return view('petani.cicilan', compact('list'));
     }
     public function cekinput(Request $request){
         $ekstensi = $request->file('image')->clientExtension();
@@ -51,20 +51,32 @@ class PetaniController extends Controller
         }
     }
     public function peminjamandana(Request $request){
-        $ekstensi = $request->file('ktp')->clientExtension();
-        $nama = $request->name.'-'.now()->timestamp.'.'.$ekstensi;
-        $request->file('ktp')->storeAs('public/Data', $nama);
-        $request['ktp'] = $nama;
+
+        if ($request->hasFile('ktp')) {
+            $ekstensiKTP = $request->file('ktp')->getClientOriginalExtension();
+            $namaKTP = $request->name.'-'.now()->timestamp.'.'.$ekstensiKTP;
+            $request->file('ktp')->storeAs('public/Data/KTP', $namaKTP);
+            $request['ktp'] = $namaKTP;
+        }
+        
+        if ($request->hasFile('lahan')) {
+            $ekstensiLahan = $request->file('lahan')->getClientOriginalExtension();
+            $namaLahan = $request->name.'-'.now()->timestamp.'.'.$ekstensiLahan;
+            $request->file('lahan')->storeAs('public/Data/Lahan', $namaLahan);
+            $request['lahan'] = $namaLahan;
+        }
+        
         $cekinput = Peminjaman::create([
-            'ktp' => $nama,
+            'ktp' => $namaKTP,
             'petani' => $request->petani,
+            'email' => $request->email,
             'alamat' => $request->alamat,
             'dana' => $request->dana,
             'tujuan' => $request->tujuan,
             'cicilan' => $request->cicilan,
-            'lahan' => $request->lahan,
-            'jatuhtempo' => '2024-12-31',
-            'status' => "Menunggu Konfirmasi"
+            'lahan' => $namaLahan,
+            'jatuhtempo' => date('Y-m-d', strtotime($request->created_at . ' +'.$request->cicilan.' months')),
+            'status' => "Menunggu Validasi"
         ]);
         if($cekinput){
             return redirect('/petani/peminjaman');
@@ -72,5 +84,19 @@ class PetaniController extends Controller
         
     }
 
+    public function bayarcicilan(Request $request){
+        $id = $request->input('id');
+        DB::table('peminjaman')->where('id', $id)->update(['status' => 'Lunas']);
+
+        return redirect('/petani/cicilan');
+
+    }
+
+    public function invoice($id)
+    {
+        $invoice = Peminjaman::find($id);
+        return view('petani.invoice', compact(['invoice']));
+    }
+    
 }
 

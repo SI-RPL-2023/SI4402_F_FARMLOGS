@@ -7,23 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Farmlogs</title>
     <link rel="icon" href="Image/LOGO RPL.png" type="image/icon type">
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 <body>
 <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
-
-
-                <a class="navbar-brand" href="home">
-                    <img src="../Image/LOGO RPL.png" width="40" height="">
-
                 <a class="navbar-brand" href="/pembeli/home">
                     <img src="../Image/LOGO RPL.png" width="80" height="">
-
-
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,28 +25,21 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link active" href="/pembeli/menu">Hasil Panen</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikel') }}">Artikel</a>
                     </li>
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/home">Home</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
+                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/pembeli/transaksi">Transaction</a></li>
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
               </div>
-            </div>
             </div>
         </nav>
     </header>
@@ -75,7 +62,7 @@
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">E-mail</label>
                 <div class="col-sm-10">
-                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Email" name="email">
+                    <input value="{{ Auth::user()->email }}" type="text" class="form-control" placeholder="Email" name="email" readonly>
                 </div>
             </div>
             <div class="form-group mb-3 row">
@@ -96,20 +83,22 @@
                     <input value="{{ Auth::user()->daerah }}" type="text" class="form-control" placeholder="Daerah" name="daerah">
                 </div>
             </div>
+            <hr class="featurette-divider">
+            <p>Masukan Password Anda yang Sekarang untuk Pengecekan Autorisasi</p>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Password</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Konfirmasi Password</label>
                 <div class="col-sm-10">
-                    <input  type="password" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation">
+                    <input  type="password" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation" id = "konfirmasi" required>
                 </div>
             </div>
             <div class="form-group mt-5" style="float: right;">
-                <button type="submit" class="btn btn-edit mx-2">Update</button>
+                <button type="submit" class="btn btn-edit mx-2" onclick="validateForm()" >Update</button>
             </div>
         </form>
     </div>
@@ -160,4 +149,29 @@
   
 </div>
 </body>
+<script>
+    function validateForm() {
+        
+        var lahanInput = document.getElementById('konfirmasi');
+
+        
+        if (lahanInput.value === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Form tidak lengkap',
+                text: 'Mohon isi semua field yang diperlukan'
+            });
+        } else {
+            showSuccessNotification();
+        }
+    }
+
+    function showSuccessNotification() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Data berhasil diupdate',
+            text: 'Data diri berhasil di update'
+        });
+    }
+</script>
 </html>

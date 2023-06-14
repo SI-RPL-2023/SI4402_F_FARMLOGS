@@ -17,12 +17,12 @@ class AdminController extends Controller
 {
     public function dashboardadmin()
     {
-        // $count =  HasilPanen::count();
-        // $tr =  Transactions::count();
-        // $user = User::count();
-        // $transaksi = Transactions::sum('harga');
-        // $list = User::all();
-        return view('admin.dashboard');
+        $co =  CheckOut::count();
+        $user = User::where('id_roles', '<>', '1')->count();
+        $users = User::where('id_roles', '2')->get();
+        $petani = User::where('id_roles', '3')->get();
+        $transaksi = CheckOut::where('status', 'diterima')->sum('harga');;
+        return view('admin.dashboard', compact(['co'],['user'],['transaksi'],['users'],['petani']));
     }
     public function profileadmin()
     {
@@ -39,7 +39,9 @@ class AdminController extends Controller
 
     public function dana()
     {
-        return view('admin.dana');
+        $dana = Peminjaman::where('status','Menunggu Validasi')->get();
+        
+        return view('admin.dana', compact(['dana']));
     }
     public function hasiltani()
     {
@@ -75,7 +77,7 @@ class AdminController extends Controller
     }
     public function responseadmin()
     {
-        $response = Peminjaman::where('status', 'Menunggu Konfirmasi')->get();
+        $response = Peminjaman::where('status', 'Valid')->get();
         return view('admin.responseadmin', compact(['response']));
     }
     public function accresponse($id)
@@ -88,6 +90,7 @@ class AdminController extends Controller
         $konfirmasiadmin->update($requesttt->except('_token'));
         return redirect('/admin/responseadmin');
     }
+<<<<<<< HEAD
     public function deleteResponse($id)
     {
         // Lakukan logika penghapusan data berdasarkan $id
@@ -99,4 +102,31 @@ class AdminController extends Controller
     }
 
 
+=======
+    public function verifikasidana($id){
+        $dana = Peminjaman::find($id);
+        return view('admin.verifikasidana', compact(['dana']));
+    }
+
+    public function confirm2(Request $request, $id){
+        $konfirmasidana = Peminjaman::find($id);
+        $konfirmasidana->update($request->except('_token'));
+        return redirect('/admin/dana');
+    }
+
+    public function reporting()
+    {
+        return view('admin.reporting');
+    }
+    public function reportingpenjualan()
+    {
+        $penjualan = CheckOut::all();
+        return view('admin.reportingpenjualan',compact(['penjualan']));
+    }
+    public function reportingpeminjaman()
+    {
+        $peminjaman = Peminjaman::all();
+        return view('admin.reportingpeminjaman', compact(['peminjaman']));
+    }
+>>>>>>> 2588202b8042a3928544f3ec0aca50bba77f92b6
 }

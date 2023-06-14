@@ -30,10 +30,10 @@
      
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+<header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/petani/home">
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,27 +42,35 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/petani/inputpanen">Jual Hasil Panen</a>
+                        <a class="nav-link active" href="inputpanen">Jual Hasil Panen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/petani/peminjaman">Pinjam Dana</a>
+                        <a class="nav-link active" href="peminjaman">Pinjam Dana</a>
                     </li>
                     <li class="nav-item ml-2">
                         <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/petani/cicilan">Bayar Cicilan</a>
+                        <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
                     </ul>
+                </div>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
                   <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                  <li><a class="dropdown-item" href="/petani/inputpanen">Jual Hasil Panen</a></li>
+                  <li><a class="dropdown-item" href="/petani/peminjaman">Peminjaman Dana</a></li>
+                  <li><a class="dropdown-item" href="/petani/cicilan">Pembayaran Cicilan</a></li>
+                  <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
+              </div>
+                </span>
+                </div>
+                </div>
             </div>
             </div>
         </nav>
@@ -78,7 +86,7 @@
                 <h4 style="color: hsl(217, 10%, 50.8%)">Kami menyediakan informasi terbaru untuk membantu meningkatkan produktivitas pertanian Anda.</h4> 
                 <br>
                 <br>
-                <a href="{{ url('/artikelpetani') }}" style="background-color: blue; color: #ffffff; font-size: 30px;" type="submit" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Artikel</a>
+                <a href="{{ url('/artikel') }}" style="background-color: blue; color: #ffffff; font-size: 30px;" type="submit" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Artikel</a>
                 <br>
             </div>
             <div class="col-lg-6 mb-9 mb-lg-8">
@@ -122,18 +130,18 @@
             <img src="../Image/panenid.jpg" alt="gambar" width="800" height="500">
                 <div class="card-body justify-center">
                     <h5 class="card-title">{{$data->nama_artikel}}</h5>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{$data->id_artikelpetani}}">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{$data->id_artikel}}">
                         View Details
                     </button>
                 </div>
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="myModal{{$data->id_artikelpetani}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal{{$data->id_artikel}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{$data->nama_artikelpetani}}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{$data->nama_artikel}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -142,7 +150,7 @@
                         <br>
                         <img src="../Image/panenid.jpg" alt="gambar" style="display: block; margin: auto;">  
                         <br> <br>
-                        {{$data->desc_artikelpetani}}
+                        {{$data->desc_artikel}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

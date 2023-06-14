@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 <body>
+<body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -26,24 +27,20 @@
                         <a class="nav-link active" href="inputpanen">Jual Hasil Panen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Pinjaman</a>
+                        <a class="nav-link active" href="peminjaman">Pinjam Dana</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Bayar Pinjaman</a>
+                        <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
-                    </li> -->
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
-                  <li><a class="dropdown-item" href="/petani/peminjaman">Peminjaman Dana</a></li>
-                  <li><a class="dropdown-item" href="/petani/cicilan">Pembayaran Cicilan</a></li>
                   <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>

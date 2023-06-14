@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
 
@@ -98,7 +97,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Reporting</span></a>
             </li>
-           
+    
 
             <!-- Nav Item - Charts -->
 
@@ -209,50 +208,39 @@
                     <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Transaksi Konsumen</h1>
-                    <p class="mb-4">Tabel Transaksi dari Konsumen</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Verifikasi Data</h1>
+                    <p class="mb-4">Verifikasi data yang dikirim oleh para petani</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                            
+                            </h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Pembeli</th>
-                                            <th>Nama Barang</th>
-                                            <th>Harga</th>
-                                            <th>Payment</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                     @foreach($trans as $k)
-                                        <tr>
-                                            <td>{{$k->nama}}</td>   
-                                            <td>{{$k->name }}</td>
-                                            <td>Rp {{ number_format($k['harga'], 0, ',', '.') }}</td>
-                                            <td>{{$k->pembayaran }}</td>
-                                            <td>{{$k->hasil }}
-                                                
-                                                    <a href="/admin/acctransaksi/{{$k->id}}">
-                                                    <button type ="submit"  class="btn btn-success btn-edit">Konfirmasi</button>
-                                                    </a>
-                                                 <br><br>
-                                                    
-                                                </td>
-                                                
-                                        </tr>
-                                        @endforeach
-                                    
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                            <div class="container">
+                <form action="" method="POST" enctype="multipart/form-data">
+                @method('put') 
+                @csrf
+                
+              
+                <div class="form-floating">
+                    <label for="floatingInput">Status Pesanan</label>
+                    <select class="form-select form-control " aria-label="Default select example" name="status">
+                        <option value="Menunggu Validasi">Menunggu Validasi</option>
+                        <option value="Valid">Valid</option>
+                        <option value="Ditolak">Tidak</option>
+                    </select>
+                </div>
+                <br>
+
+                <br><br>
+                <button class="w-25 btn navcolor text-white"  type="submit">Submit</button>
+                <br><br>
+                </form>
+                </div>
 
                     </div>
                     <!-- /.container-fluid -->

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../Asset/home.css">
 </head>
 
+<body>
+
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -23,40 +25,41 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link active" href="inputpanen">Jual Hasil Panen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#layanan">Layanan Kami</a>
+                        <a class="nav-link active" href="peminjaman">Pinjam Dana</a>
                     </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link active" href="{{ url('/artikelpetani') }}">Artikel</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#mereka">Perjalanan Mereka</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#seputar">Seputar Farmlogs</a>
+                        <a class="nav-link active" href="cicilan">Bayar Cicilan</a>
                     </li>
                     </ul>
                 </div>
                 <div class="dropdown">
                 <button class="btn btn-book-a-table dropdown-toggle"  type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->nama }}</button></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/pembeli/profile">Profile</a></li>
-                  <li><a class="dropdown-item" href="/transaction">Transaction</a></li>
-                  <li><a class="dropdown-item" href="/petani/inputpanen">Input Panen</a></li>
-                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                  <li><a class="dropdown-item" href="/petani/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/">Log out</a></li>
                 </ul>
               </div>
+              </div>
+                </span>
+                </div>
+                </div>
             </div>
             </div>
         </nav>
     </header>
-
-<body>
          <!-- Begin Page Content -->
          <div class="container-fluid">
 
         <!-- Page Heading -->
+        <br>
         <h1 class="h3 mb-2 text-gray-800">Pembayaran Cicilan</h1>
-
+      <br>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -72,7 +75,6 @@
                                 <th>Jatuh Tempo</th>
                                 <th>Status</th>
                                 <th>Action</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,12 +82,60 @@
                             <tr>
                                 <td>{{$x->petani}}</td>
                                 <td>{{$x->created_at}}</td>
-                                <td>{{$x->dana}}</td>
+                                <td>Rp {{ number_format($x['dana'], 0, ',', '.') }}</td>
                                 <td>{{$x->jatuhtempo}}</td>
                                 <td>{{$x->status}}</td>
                                     <td>
-                                    <button type ="submit"  class="btn btn-success btn-edit">Bayar</button>                                    
-                                    </td>                                    
+                                    @if ($x->status == 'Terkonfirmasi')
+                                    <form action="{{ route('bayarcicilan') }}" method="POST">
+                                        @method('put') 
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $x->id }}">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                          Bayar
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Pembayaran</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p>Total Tagihan</p>
+                                                <p>Rp {{ number_format($x['dana'], 0, ',', '.') }}</p>
+                                                <p>Pilih Metode Pembayaran :</p>
+                                                <div class="my-3">
+                                                  <div class="form-check">
+                                                      <input id="Card" name="pembayaran"value="Card" type="radio" class="form-check-input" checked required>
+                                                      <label class="form-check-label" for="Card">Credit Card</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                      <input id="Bank transfer" name="pembayaran" type="radio" value = "Bank transfer" class="form-check-input" required>
+                                                      <label class="form-check-label" for="Bank transfer">Bank transfer</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                      <input id="Digital Wallet" name="pembayaran" type="radio" value="Digital Wallet" class="form-check-input" required>
+                                                      <label class="form-check-label" for="Digital Wallet">Digital Wallet</label>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="Submit" class="btn btn-primary">Konfirmasi</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </form>
+                                    @elseif ($x->status == 'Lunas')
+                                    <a href="/petani/invoice/{{$x -> id}}" class="btn btn-success">invoice</a>
+                                    </td>
+
+                                    @endif                                    
                             </tr>
                         @endforeach
                         

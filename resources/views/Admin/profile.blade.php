@@ -16,7 +16,7 @@
 <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/admin/dashboard">
                     <img src="../Image/LOGO_RPL_-removebg-preview.png" width="80" height="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,35 +48,20 @@
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nama</label>
                 <div class="col-sm-10">
-                    <input value="" type="text" class="form-control" placeholder="Admin" name="nama">
+                    <input value="" type="text" class="form-control" placeholder="Admin" name="nama" readonly>
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">E-mail</label>
                 <div class="col-sm-10">
-                    <input value="" type="text" class="form-control" placeholder="admin@gmail.com" name="email">
+                    <input value="" type="text" class="form-control" placeholder="admin@gmail.com" name="email" readonly>
                 </div>
             </div>
             <div class="form-group mb-3 row">
                 <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nomor Handphone</label>
                 <div class="col-sm-10">
-                    <input value="" type="number" class="form-control" placeholder="088811223344" name="nomor">
+                    <input value="" type="number" class="form-control" placeholder="088811223344" name="nomor" readonly>
                 </div>
-            </div>
-            <div class="form-group mb-3 row">
-                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
-                </div>
-            </div>
-            <div class="form-group mb-3 row">
-                <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Konfirmasi Password</label>
-                <div class="col-sm-10">
-                    <input  type="password" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation">
-                </div>
-            </div>
-            <div class="form-group mt-5" style="float: right;">
-                <button type="submit" class="btn btn-edit mx-2">Update</button>
             </div>
         </form>
     </div>
