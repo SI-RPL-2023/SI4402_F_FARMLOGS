@@ -89,16 +89,7 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/tableadmin">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/validateadmin">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Validate</span></a>
-            </li>
+        
 
             <!-- Nav Item - Charts -->
 
@@ -246,7 +237,10 @@
                     <label for="floatingInput">Status Pesanan</label>
                     <select class="form-select form-control " aria-label="Default select example" name="status">
                         <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                        <option value="Dikirim">Diproses</option>
+            
                         <option value="Dikirim">Dikirim</option>
+                        
                     </select>
                 </div>
                 <br>

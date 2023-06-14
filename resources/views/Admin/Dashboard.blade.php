@@ -92,21 +92,7 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/tableadmin">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/validateadmin">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Validate</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/responseadmin">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Response</span></a>
-            </li>
+            
             <!--  -->
 
             <!-- Nav Item - Charts -->
